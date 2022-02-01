@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import { useDocTitle } from './DocTitleHook'
-import { useLifecycleEffect } from './UseLifecycleEffectHook'
+import { useLifecycleEffect } from './hooks/UseLifecycleEffectHook'
 
 const CounterTitle = () => {
   const initDocTitle = 'React Starter Project'
   const [count, setCount] = useState<number>(0)
-  const [name, setName] = useState<string>('')
 
   useLifecycleEffect(
     () => {
@@ -14,7 +12,7 @@ const CounterTitle = () => {
     () => {
       document.title = initDocTitle
     },
-    [count, name],
+    [count],
     { skipMount: true, cleanupOnce: true },
   )
 
