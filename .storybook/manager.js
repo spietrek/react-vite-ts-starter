@@ -1,11 +1,11 @@
-import { addons } from '@storybook/addons';
-import nbosTheme from './theme';
+import { addons } from '@storybook/addons'
+import nbosTheme from './theme'
 
 addons.setConfig({
   isFullscreen: false,
   showNav: true,
   showPanel: false,
-  panelPosition: 'right',
+  panelPosition: 'bottom',
   sidebarAnimations: true,
   enableShortcuts: true,
   isToolshown: true,
@@ -15,4 +15,4 @@ addons.setConfig({
   sidebar: {
     showRoots: true,
   },
-});
+})
