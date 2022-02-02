@@ -3,11 +3,13 @@ import classNames from 'classnames'
 import Counter from './Counter'
 import CounterTitle from './CounterTitle'
 import CounterReducer from './CounterReducer'
+import MenuReducer from './MenuReducer'
 
 const EXAMPLES = {
   Counter,
   CounterTitle,
   CounterReducer,
+  MenuReducer,
 }
 
 type Examples = keyof typeof EXAMPLES
@@ -25,16 +27,9 @@ const App = () => {
       onClick={() => setExample(name)}
       role="button"
       aria-pressed="true"
-      className={classNames(
-        'tw-btn',
-        'tw-btn-accent',
-        'tw-btn-wide',
-        'tw-btn-sm',
-        'tw-mx-2',
-        {
-          'tw-btn-active': name === example,
-        },
-      )}
+      className={classNames('tw-btn', 'tw-btn-accent', 'tw-btn-sm', 'tw-mx-2', {
+        'tw-btn-active': name === example,
+      })}
     >
       &lt;
       {name} /&gt;
