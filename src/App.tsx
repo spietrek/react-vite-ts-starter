@@ -38,7 +38,7 @@ const App = () => {
   return (
     <div className="tw-container tw-mx-auto">
       <div className="tw-flex tw-items-center tw-justify-center tw-min-h-screen">
-        <div className="tw-text-center tw-py-16 tw-px-4 tw-w-[900px] tw-bg-slate-500 tw-rounded-md tw-shadow-3xl">
+        <div className="tw-text-center tw-py-16 tw-px-4 tw-w-[900px] tw-bg-slate-300 tw-rounded-md tw-shadow-3xl">
           {exampleButtons}
           <div className="tw-divider"></div>
           <ExampleComponent />
