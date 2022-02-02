@@ -6,8 +6,10 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:jsx-a11y/recommended',
     'plugin:react/recommended',
-    'standard',
+    'plugin:react-hooks/recommended',
+    'standard-with-typescript',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -25,10 +27,11 @@ module.exports = {
   },
   plugins: ['jsx-a11y', 'react', '@typescript-eslint', 'prettier'],
   rules: {
-    'jsx-a11y/anchor-is-valid': 'off',
-    'jsx-a11y/no-static-element-interactions': 'off',
-    'jsx-a11y/click-events-have-key-events': 'off',
-    'jsx-a11y/alt-text': 'off',
+    'jsx-a11y/anchor-is-valid': 'warn',
+    'jsx-a11y/no-static-element-interactions': 'warn',
+    'jsx-a11y/click-events-have-key-events': 'warn',
+    'jsx-a11y/alt-text': 'warn',
+    'jsx-a11y/rule-name': 2,
     'jsx-quotes': ['error', 'prefer-double'],
     'prettier/prettier': [
       'warn',
@@ -55,6 +58,8 @@ module.exports = {
         html: true,
       },
     ],
+    'react-hooks/rules-of-hooks': 'warn',
+    'react-hooks/exhaustive-deps': 'warn',
     'prefer-template': 'error',
     'import/no-cycle': 'off',
     'import/no-anonymous-default-export': 'off',
@@ -63,5 +68,6 @@ module.exports = {
     'no-console': 'off',
     'no-plusplus': 'off',
     'no-shadow': 'off',
+    'no-unused-vars': 'warn',
   },
 }
