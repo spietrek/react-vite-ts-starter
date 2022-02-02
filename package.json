@@ -12,7 +12,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "watch-tailwind": "npx tailwindcss -i ./src/index.css -o ./temp/tailwind.css --watch",
-    "type:check": "tsc"
+    "type:check": "tsc",
+    "lint": "eslint . --ext .ts --ext .tsx"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -41,9 +42,11 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-security": "^1.4.0",
     "postcss": "^8.4.6",
     "prettier": "^2.5.1",
     "storybook-builder-vite": "^0.1.14",
@@ -66,5 +69,9 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --cache --fix",
+    "*.{ts,tsx,js,css,md}": "prettier --write"
   }
 }
