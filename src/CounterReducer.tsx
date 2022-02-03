@@ -1,6 +1,6 @@
 import { useReducer } from 'react'
 
-type State = {
+interface State {
   value: number
 }
 
@@ -14,7 +14,7 @@ enum ActionKind {
   Reset = 'RESET',
 }
 
-type Action = {
+interface Action {
   type: ActionKind
   payload: number
 }
@@ -34,7 +34,7 @@ const resetAction: Action = {
   payload: 0,
 }
 
-const CounterReducer = () => {
+const CounterReducer = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
@@ -64,7 +64,7 @@ const CounterReducer = () => {
   )
 }
 
-const reducer = (state: State, action: Action) => {
+const reducer = (state: State, action: Action): State => {
   const { type, payload } = action
 
   switch (type) {

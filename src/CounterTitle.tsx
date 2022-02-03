@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useLifecycleEffect } from './hooks/UseLifecycleEffectHook'
 
-const CounterTitle = () => {
+const CounterTitle = (): JSX.Element => {
   const initDocTitle = 'React Starter Project'
   const [count, setCount] = useState<number>(0)
 

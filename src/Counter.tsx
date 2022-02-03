@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Counter = () => {
+const Counter = (): JSX.Element => {
   const [count, setCount] = useState<number>(0)
   const [calculation, setCalculation] = useState(0)
 
@@ -26,7 +26,6 @@ const Counter = () => {
       <p className="tw-mt-4">Calculation: {calculation}</p>
     </div>
   )
-  return <div>Counter</div>
 }
 
 export default Counter

@@ -13,7 +13,7 @@ interface SelectedItemState {
   selectedItem: Item
 }
 
-type Action = {
+interface Action {
   type: string
 }
 
@@ -38,7 +38,7 @@ const menuItems = [
   },
   {
     itemType: 'shrimp',
-    name: `Crabby's Shrimp Platter`,
+    name: "Crabby's Shrimp Platter",
     description: 'Healthy and sumptious, the king of shrimp.',
     waitTime: '15 mins',
     price: '$20',
@@ -58,7 +58,7 @@ const menuOptions = menuItems.map(item => {
 const initialState = { selectedItem: menuItems[0] }
 
 function reducer(state: SelectedItemState, action: Action): SelectedItemState {
-  let newSelection = menuItems.find(item => item.itemType === action.type)
+  const newSelection = menuItems.find(item => item.itemType === action.type)
   if (newSelection !== undefined) {
     return { selectedItem: newSelection }
   } else {
@@ -66,16 +66,11 @@ function reducer(state: SelectedItemState, action: Action): SelectedItemState {
   }
 }
 
-function MenuReducer() {
+const MenuReducer = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const handleOrder = () => {
-    alert(
-      'Ordering ' +
-        state.selectedItem.name +
-        ' for ' +
-        state.selectedItem.price,
-    )
+  const handleOrder = (): void => {
+    alert(`Ordering ${state.selectedItem.name} for ${state.selectedItem.price}`)
   }
 
   return (
