@@ -14,7 +14,7 @@ const useLifecycleEffect = (
   cleanup: CleanupFunction,
   deps: Dependencies,
   options: IUseLifecycleEffectProps,
-) => {
+): void => {
   const runEffect = useRef(!options.skipMount)
   const runCleanup = useRef(!options.cleanupOnce)
 
@@ -36,7 +36,7 @@ const useLifecycleEffect = (
         cleanup()
       }
     }
-  }, deps)
+  }, deps) // eslint-disable-line react-hooks/exhaustive-deps
 }
 
 export { useLifecycleEffect }

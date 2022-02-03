@@ -37,6 +37,8 @@
     "prettier"
   ],
   "rules": {
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/explicit-function-return-type": "warn",
     "@typescript-eslint/no-use-before-define": "error",
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/triple-slash-reference": "off",
@@ -60,6 +62,7 @@
       }
     ],
     "jsx-quotes": ["error", "prefer-double"],
+    "multiline-ternary": "off",
     "no-debugger": "warn",
     "no-console": "off",
     "no-plusplus": "off",

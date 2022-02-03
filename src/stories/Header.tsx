@@ -1,8 +1,12 @@
 import { Button } from './Button'
 import './header.css'
 
+interface UseProps {
+  name: string
+}
+
 interface HeaderProps {
-  user?: {}
+  user?: UseProps
   onLogin: () => void
   onLogout: () => void
   onCreateAccount: () => void
@@ -13,7 +17,7 @@ export const Header = ({
   onLogin,
   onLogout,
   onCreateAccount,
-}: HeaderProps) => (
+}: HeaderProps): JSX.Element => (
   <header>
     <div className="wrapper">
       <div>
@@ -41,7 +45,7 @@ export const Header = ({
         <h1>Acme</h1>
       </div>
       <div>
-        {user ? (
+        {user != null ? (
           <Button size="small" onClick={onLogout} label="Log out" />
         ) : (
           <>
