@@ -14,10 +14,17 @@
   "[react]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
+  },
+
+  "eslint.options": {
+    "overrideConfigFile": "./.eslintrc"
   },
   "eslint.validate": [
     "html",
@@ -27,12 +34,13 @@
     "typescriptreact",
     "react"
   ],
+  "javascript.validate.enable": true,
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
   "stylelint.autoFixOnSave": true,
   "stylelint.useLocal": true,
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "typescript.format.enable": true,
+  "typescript.validate.enable": true,
+  "typescript.suggest.autoImports": false
 }
