@@ -1,12 +1,8 @@
 import { Header } from './Header'
 import './page.css'
 
-interface UseProps {
-  name: string
-}
-
 interface PageProps {
-  user?: UseProps
+  user?: Record<string, never>
   onLogin: () => void
   onLogout: () => void
   onCreateAccount: () => void

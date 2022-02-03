@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import classNames from 'classnames'
+import clsx from 'clsx'
 import Counter from './Counter'
 import CounterTitle from './CounterTitle'
 import CounterReducer from './CounterReducer'
@@ -28,7 +28,7 @@ const App = (): JSX.Element => {
       onClick={() => setExample(name)}
       role="button"
       aria-pressed="true"
-      className={classNames('tw-btn', 'tw-btn-accent', 'tw-btn-sm', 'tw-mx-2', {
+      className={clsx('tw-btn', 'tw-btn-accent', 'tw-btn-sm', 'tw-mx-2', {
         'tw-btn-active': name === example,
       })}
     >

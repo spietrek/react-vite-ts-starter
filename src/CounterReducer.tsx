@@ -64,7 +64,7 @@ const CounterReducer = (): JSX.Element => {
   )
 }
 
-const reducer = (state: State, action: Action): State => {
+const reducer = (state: typeof initialState, action: Action): State => {
   const { type, payload } = action
 
   switch (type) {

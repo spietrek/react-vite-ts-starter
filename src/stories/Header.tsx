@@ -1,12 +1,7 @@
 import { Button } from './Button'
 import './header.css'
-
-interface UseProps {
-  name: string
-}
-
 interface HeaderProps {
-  user?: UseProps
+  user?: Record<string, never>
   onLogin: () => void
   onLogout: () => void
   onCreateAccount: () => void
