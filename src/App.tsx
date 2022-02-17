@@ -26,8 +26,6 @@ const App = (): JSX.Element => {
     <button
       key={name}
       onClick={() => setExample(name)}
-      role="button"
-      aria-pressed="true"
       className={clsx('tw-btn', 'tw-btn-accent', 'tw-btn-sm', 'tw-mx-2', {
         'tw-btn-active': name === example,
       })}
@@ -36,6 +34,7 @@ const App = (): JSX.Element => {
       {name} /&gt;
     </button>
   ))
+
   return (
     <div className="tw-container tw-mx-auto">
       <div className="tw-flex tw-items-center tw-justify-center tw-min-h-screen">

@@ -13,30 +13,36 @@
     "build-storybook": "build-storybook",
     "watch-tailwind": "npx tailwindcss -i ./src/index.css -o ./temp/tailwind.css --watch",
     "type:check": "tsc",
-    "lint": "eslint . --ext .ts --ext .tsx"
+    "lint": "eslint --ext .ts,.tsx --ignore-path .gitignore src",
+    "lintfix": "eslint --ext .ts,.tsx --ignore-path .gitignore --fix src",
+    "build:css": "postcss styles/index.css -o app/styles/index.css --env production",
+    "build:run": "yarn build:css && yarn build"
   },
   "dependencies": {
+    "@heroicons/vue": "^1.0.5",
+    "@tailwindcss/line-clamp": "^0.3.1",
     "clsx": "^1.1.1",
-    "daisyui": "^1.25.4",
+    "daisyui": "^2.0.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.12",
-    "@storybook/addon-a11y": "^6.4.18",
-    "@storybook/addon-actions": "^6.4.18",
-    "@storybook/addon-essentials": "^6.4.18",
-    "@storybook/addon-links": "^6.4.18",
-    "@storybook/react": "^6.4.18",
-    "@types/node": "^17.0.14",
-    "@types/react": "17.0.38",
+    "@babel/core": "^7.17.4",
+    "@storybook/addon-a11y": "^6.4.19",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@types/node": "^17.0.18",
+    "@types/react": "17.0.39",
     "@types/react-dom": "17.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.10.2",
-    "@typescript-eslint/parser": "^5.10.2",
-    "@vitejs/plugin-react": "^1.1.4",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "@vitejs/plugin-react": "^1.2.0",
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",
-    "eslint": "^8.8.0",
+    "cssnano": "^5.0.17",
+    "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard-with-typescript": "^21.0.1",
     "eslint-plugin-import": "^2.25.4",
@@ -48,12 +54,17 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-security": "^1.4.0",
     "postcss": "^8.4.6",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "^14.0.2",
+    "postcss-nested": "^5.0.6",
+    "postcss-nested-ancestors": "^2.0.0",
     "prettier": "^2.5.1",
-    "storybook-builder-vite": "^0.1.14",
-    "tailwindcss": "^3.0.18",
+    "prettier-plugin-tailwindcss": "^0.1.7",
+    "storybook-builder-vite": "^0.1.16",
+    "tailwindcss": "^3.0.23",
     "typescript": "^4.5.5",
-    "vite": "^2.7.13",
-    "vite-tsconfig-paths": "^3.3.17"
+    "vite": "^2.8.3",
+    "vite-tsconfig-paths": "^3.4.0"
   },
   "browserslist": {
     "production": [
@@ -69,9 +80,5 @@
   },
   "engines": {
     "node": ">=14"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": "eslint --cache --fix",
-    "*.{ts,tsx,js,css,md}": "prettier --write"
   }
 }

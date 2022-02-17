@@ -6,4 +6,7 @@ public/
 build/
 dist/
 
+index.html
+postcss.config.js
 tailwind.config.js
+vite.config.js
