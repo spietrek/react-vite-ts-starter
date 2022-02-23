@@ -1,14 +1,14 @@
 import React from 'react'
-import { RootState } from '../../../store'
-import { useSelector, useDispatch } from 'react-redux'
+import type { RootState } from '../../../store'
+import { useAppSelector, useAppDispatch } from '../../../hooks/UseReduxHooks'
 import {
   decrement,
   increment,
 } from '../../../store/slices/counter/counterSlice'
 
 const StoreCounter: React.FC = () => {
-  const count = useSelector((state: RootState) => state.counter.value)
-  const dispatch = useDispatch()
+  const count = useAppSelector((state: RootState) => state.counter.value)
+  const dispatch = useAppDispatch()
 
   return (
     <div>

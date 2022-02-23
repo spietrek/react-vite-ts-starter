@@ -16,12 +16,12 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "noImplicitAny": true,
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
-      "~/*": ["./*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
   "exclude": [
     "node_modules",
     "build",

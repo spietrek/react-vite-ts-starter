@@ -14,7 +14,11 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/line-clamp'), require('daisyui')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+    require('daisyui'),
+  ],
   daisyui: {
     styled: true,
     themes: ['light'],
