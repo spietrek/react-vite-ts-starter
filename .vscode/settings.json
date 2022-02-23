@@ -1,24 +1,10 @@
 {
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[react]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.organizeImports": false
+  },
   "eslint.options": {
     "overrideConfigFile": "./.eslintrc"
   },
@@ -33,10 +19,5 @@
   "javascript.validate.enable": true,
   "css.validate": false,
   "less.validate": false,
-  "scss.validate": false,
-  "stylelint.autoFixOnSave": true,
-  "stylelint.useLocal": true,
-  "typescript.format.enable": true,
-  "typescript.validate.enable": true,
-  "typescript.suggest.autoImports": false
+  "scss.validate": false
 }
