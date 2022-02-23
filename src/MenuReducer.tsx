@@ -83,14 +83,14 @@ const MenuReducer = (): JSX.Element => {
         </div>
         <select
           onChange={e => dispatch({ type: e.target.value })}
-          className="tw-select tw-select-bordered tw-w-full tw-max-w-xs tw-mt-4"
+          className="tw-select-bordered tw-select tw-mt-4 tw-w-full tw-max-w-xs"
           id="inputGroupSelect01"
         >
           {menuOptions}
         </select>
       </div>
 
-      <button className="tw-btn tw-btn-dark tw-my-4" onClick={handleOrder}>
+      <button className="tw-btn-dark tw-btn tw-my-4" onClick={handleOrder}>
         Place Order
       </button>
 
@@ -110,7 +110,7 @@ const MenuReducer = (): JSX.Element => {
         <img
           src={state.selectedItem.imgURL}
           alt={state.selectedItem.name}
-          className="tw-mt-4 tw-w-[350px] tw-block tw-m-auto"
+          className="tw-m-auto tw-mt-4 tw-block tw-w-[350px]"
         />
       </div>
     </>

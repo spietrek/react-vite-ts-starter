@@ -1,8 +1,8 @@
 const Spinner = (): JSX.Element => {
   return (
-    <div className="tw-flex tw-justify-center tw-items-center tw-my-4">
+    <div className="tw-my-4 tw-flex tw-items-center tw-justify-center">
       <svg
-        className="tw-mx-auto tw-animate-spin tw--ml-1 tw-mr-3 tw-h-5 tw-w-5 tw-text-white"
+        className="tw-mx-auto tw--ml-1 tw-mr-3 tw-h-5 tw-w-5 tw-animate-spin tw-text-white"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"

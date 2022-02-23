@@ -42,19 +42,19 @@ const CounterReducer = (): JSX.Element => {
       Count: {state.value}
       <div className="tw-pt-4">
         <button
-          className="tw-btn tw-btn-accent tw-btn-outline tw-btn-sm tw-mx-1"
+          className="tw-btn-outline tw-btn tw-btn-accent tw-btn-sm tw-mx-1"
           onClick={() => dispatch(increaseAction)}
         >
           Increase
         </button>
         <button
-          className="tw-btn tw-btn-accent tw-btn-outline tw-btn-sm tw-mx-1"
+          className="tw-btn-outline tw-btn tw-btn-accent tw-btn-sm tw-mx-1"
           onClick={() => dispatch(decreaseAction)}
         >
           Decrease
         </button>
         <button
-          className="tw-btn tw-btn-accent tw-btn-outline tw-btn-sm tw-mx-1"
+          className="tw-btn-outline tw-btn tw-btn-accent tw-btn-sm tw-mx-1"
           onClick={() => dispatch(resetAction)}
         >
           Reset
