@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
+import StoreCounter from '../components/features/storeCounter/StoreCounter'
 
-const EditPage: React.FC = () => {
+const StoreCounterPage: React.FC = () => {
   return (
     <div className="tw-container tw-mx-auto">
       <div className="tw-flex tw-min-h-screen tw-items-center tw-justify-center">
@@ -8,11 +9,12 @@ const EditPage: React.FC = () => {
           <Link className="tw-btn tw-btn-sm tw-mb-4" to="/">
             Home
           </Link>
-          <h1>EDIT PAGE</h1>
+          <h1>COUNTER PAGE</h1>
+          <StoreCounter />
         </div>
       </div>
     </div>
   )
 }
 
-export default EditPage
+export default StoreCounterPage

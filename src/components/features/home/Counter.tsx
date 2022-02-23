@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Counter = (): JSX.Element => {
+const Counter: React.FC = () => {
   const [count, setCount] = useState<number>(0)
   const [calculation, setCalculation] = useState(0)
 

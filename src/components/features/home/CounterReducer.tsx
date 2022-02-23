@@ -34,7 +34,7 @@ const resetAction: Action = {
   payload: 0,
 }
 
-const CounterReducer = (): JSX.Element => {
+const CounterReducer: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
