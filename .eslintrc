@@ -25,7 +25,7 @@
   },
   "settings": {
     "react": {
-      "version": "999.999.999"
+      "version": "detect"
     }
   },
   "plugins": [
@@ -37,8 +37,10 @@
     "prettier"
   ],
   "rules": {
+    "@typescript-eslint/camelcase": 0,
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/explicit-function-return-type": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-use-before-define": "error",
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/triple-slash-reference": "off",
@@ -76,6 +78,7 @@
         "htmlWhitespaceSensitivity": "strict",
         "arrowParens": "avoid",
         "bracketSpacing": true,
+        "endOfLine": "auto",
         "jsxSingleQuote": false,
         "printWidth": 80,
         "semi": false,
