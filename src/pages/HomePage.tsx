@@ -43,6 +43,9 @@ const HomePage: React.FC = () => {
           <Link className="tw-btn tw-btn-sm tw-mb-4" to="counter">
             Store Counter
           </Link>
+          <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="todos">
+            Store Todos
+          </Link>
           <div>
             {exampleButtons}
             <div className="tw-divider" />
