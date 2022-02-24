@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit'
+import type { RootState } from '../../../store'
 import TodosDataService from '../../../services/todos.service'
 
 export const retrieveTodos = createAsyncThunk('todos/retrieve', async () => {
@@ -6,14 +7,25 @@ export const retrieveTodos = createAsyncThunk('todos/retrieve', async () => {
   return res.data
 })
 
+interface TodoItemState {
+  id: number
+  title: string
+  completed: boolean
+  userId: number
+}
+
 interface TodosState {
   isLoading: boolean
   count: number
+  completedCount: number
+  todos: TodoItemState[]
 }
 
 const initialState = {
   isLoading: false,
   count: 0,
+  completedCount: 0,
+  todos: [],
 } as TodosState
 
 export const todosSlice = createSlice({
@@ -22,7 +34,7 @@ export const todosSlice = createSlice({
   initialState,
 
   reducers: {
-    setCount: (state, action) => {
+    clear: (state, action) => {
       state.count = action.payload
     },
   },
@@ -33,10 +45,21 @@ export const todosSlice = createSlice({
     })
     builder.addCase(retrieveTodos.fulfilled, (state, action) => {
       state.count = action.payload.length
+      state.completedCount = action.payload.filter(
+        (todo: TodoItemState) => todo.completed,
+      ).length
+      state.todos = action.payload
       state.isLoading = false
     })
   },
 })
+
+export const { clear } = todosSlice.actions
+
+const selectTodos = (state: RootState): TodoItemState[] => state.todos.todos
+export const completedTodosSelector = createSelector([selectTodos], todos =>
+  todos.filter((todo: TodoItemState) => todo.completed),
+)
 
 const { reducer } = todosSlice
 export default reducer

@@ -1,10 +1,22 @@
 import React from 'react'
 import type { RootState } from '../../../store'
 import { useAppSelector, useAppDispatch } from '../../../hooks/UseReduxHooks'
-import { retrieveTodos } from '../../../store/slices/todos/todosSlice'
+import {
+  retrieveTodos,
+  completedTodosSelector,
+} from '../../../store/slices/todos/todosSlice'
 
 const StoreTodos: React.FC = () => {
   const count = useAppSelector((state: RootState) => state.todos.count)
+  const completedTodosCount = useAppSelector((state: RootState) => {
+    const completedTodos = completedTodosSelector(state)
+    console.log(
+      '🚀 ~ file: StoreTodos.tsx ~ line 14 ~ completedTodosCount ~ completedTodos',
+      completedTodos,
+    )
+
+    return completedTodos.length
+  })
   const dispatch = useAppDispatch()
 
   return (
@@ -17,7 +29,12 @@ const StoreTodos: React.FC = () => {
         >
           Retrieve Todos
         </button>
-        Todos Count: <span>{count}</span>
+        <div>
+          Todos Count: <span>{count}</span>
+        </div>
+        <div>
+          Completed Todos Count: <span>{completedTodosCount}</span>
+        </div>
       </div>
     </div>
   )
