@@ -10,11 +10,6 @@ const StoreTodos: React.FC = () => {
   const count = useAppSelector((state: RootState) => state.todos.count)
   const completedTodosCount = useAppSelector((state: RootState) => {
     const completedTodos = completedTodosSelector(state)
-    console.log(
-      '🚀 ~ file: StoreTodos.tsx ~ line 14 ~ completedTodosCount ~ completedTodos',
-      completedTodos,
-    )
-
     return completedTodos.length
   })
   const dispatch = useAppDispatch()

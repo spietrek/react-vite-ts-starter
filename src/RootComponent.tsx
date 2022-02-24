@@ -8,6 +8,7 @@ import './styles/index.css'
 
 const StoreCounterPage = lazy(() => import('./pages/StoreCounterPage'))
 const StoreTodosPage = lazy(() => import('./pages/StoreTodosPage'))
+const ParentsPage = lazy(() => import('./pages/ParentsPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 const App = (): JSX.Element => (
@@ -35,6 +36,14 @@ const App = (): JSX.Element => (
         element={
           <Suspense fallback={<>...</>}>
             <StoreTodosPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/parents"
+        element={
+          <Suspense fallback={<>...</>}>
+            <ParentsPage />
           </Suspense>
         }
       />
