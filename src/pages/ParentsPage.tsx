@@ -14,7 +14,7 @@ const ParentsPage: React.FC = () => {
             Home
           </Link>
 
-          <h1>Parents</h1>
+          <h1>Parent</h1>
 
           <DateContext.Provider value={dateContextValue}>
             <Template />
@@ -28,7 +28,7 @@ const ParentsPage: React.FC = () => {
               Set Current Date
             </button>
             <button
-              className="tw-btn tw-btn-sm"
+              className="tw-btn tw-btn-sm tw-ml-4"
               onClick={() => assignDate(new Date())}
             >
               Assign Date
