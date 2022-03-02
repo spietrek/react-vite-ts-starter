@@ -15,6 +15,7 @@ interface TodoItemState {
 }
 
 interface TodosState {
+  isError: boolean
   isLoading: boolean
   count: number
   completedCount: number
@@ -22,6 +23,7 @@ interface TodosState {
 }
 
 const initialState = {
+  isError: false,
   isLoading: false,
   count: 0,
   completedCount: 0,
@@ -43,6 +45,7 @@ export const todosSlice = createSlice({
     builder.addCase(retrieveTodos.pending, state => {
       state.isLoading = true
     })
+
     builder.addCase(retrieveTodos.fulfilled, (state, action) => {
       state.count = action.payload.length
       state.completedCount = action.payload.filter(
@@ -50,6 +53,10 @@ export const todosSlice = createSlice({
       ).length
       state.todos = action.payload
       state.isLoading = false
+    })
+
+    builder.addCase(retrieveTodos.rejected, state => {
+      state.isError = true
     })
   },
 })
