@@ -5,12 +5,14 @@ import Counter from '../components/features/home/Counter'
 import CounterTitle from '../components/features/home/CounterTitle'
 import CounterReducer from '../components/features/home/CounterReducer'
 import MenuReducer from '../components/features/home/MenuReducer'
+import Memo from '../components/features/home/Memo'
 
 const EXAMPLES = {
   Counter,
   CounterTitle,
   CounterReducer,
   MenuReducer,
+  Memo,
 }
 
 type Examples = keyof typeof EXAMPLES

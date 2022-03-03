@@ -6,7 +6,7 @@
     "name": "spietrek"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
@@ -16,7 +16,7 @@
     "lint": "eslint --ext .ts,.tsx --ignore-path .gitignore src",
     "lintfix": "eslint --ext .ts,.tsx --ignore-path .gitignore --fix src",
     "build:css": "postcss src/styles/index.css -o src/assets/index.css --env production",
-    "watch:css": "postcss src/styles/index.css -o src/assets/index.css",
+    "preview:css": "postcss src/styles/index.css -o src/assets/index.css",
     "build:run": "yarn build:css && yarn build"
   },
   "dependencies": {
@@ -26,7 +26,7 @@
     "@tailwindcss/typography": "^0.5.2",
     "axios": "^0.26.0",
     "clsx": "^1.1.1",
-    "daisyui": "^2.2.2",
+    "daisyui": "^2.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
@@ -42,7 +42,7 @@
     "@storybook/react": "^6.4.19",
     "@types/node": "^17.0.21",
     "@types/react": "17.0.39",
-    "@types/react-dom": "17.0.12",
+    "@types/react-dom": "17.0.13",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "@vitejs/plugin-react": "^1.2.0",
@@ -50,7 +50,7 @@
     "babel-loader": "^8.2.3",
     "cssnano": "^5.1.0",
     "eslint": "^8.10.0",
-    "eslint-config-prettier": "^8.4.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^21.0.1",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
