@@ -8,7 +8,7 @@ import {
   longRetrieveTodos,
   completedTodosCountSelector,
 } from '../../../store/slices/todos/todosSlice'
-import InsSpinner from '../../atoms/InsSpinner'
+import Spinner from '../../atoms/Spinner'
 
 const StoreTodos: React.FC = () => {
   const count = useAppSelector((state: RootState) => state.todos.count)
@@ -20,7 +20,7 @@ const StoreTodos: React.FC = () => {
 
   return (
     <div>
-      {isLoading && <InsSpinner />}
+      {isLoading && <Spinner />}
 
       {!isLoading && (
         <>

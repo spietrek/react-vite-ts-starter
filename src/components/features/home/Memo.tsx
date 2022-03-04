@@ -1,5 +1,6 @@
-import React, { useState, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { useCounter } from '../../../hooks/UseCounter'
+import { useToggle } from '../../../hooks/UseToggle'
 
 const simulateProcessing = (iterations: number): string => {
   for (let i = 0; i < iterations; i++) {
@@ -9,15 +10,15 @@ const simulateProcessing = (iterations: number): string => {
 }
 
 const Memo: React.FC = () => {
-  const { count, increment } = useCounter(500)
-  const [show, setShow] = useState(true)
+  const [count, increment] = useCounter(500)
+  const [show, setShow] = useToggle(true)
 
   const memoProcess = useMemo(() => simulateProcessing(count), [count])
 
   return (
     <>
       <h1>Memo Hook</h1>
-      <h1> Counter: {count} </h1>
+      <h1>Counter: {count}</h1>
       <hr />
 
       <p> {memoProcess} </p>
@@ -28,7 +29,7 @@ const Memo: React.FC = () => {
 
       <button
         className="tw-btn-outline-primary tw-btn tw-m-4"
-        onClick={() => setShow(!show)}
+        onClick={() => setShow()}
       >
         Show/Hide {JSON.stringify(show)}
       </button>

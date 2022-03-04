@@ -83,7 +83,7 @@ const MenuReducer = (): JSX.Element => {
         </div>
         <select
           onChange={e => dispatch({ type: e.target.value })}
-          className="tw-select-bordered tw-select tw-mt-4 tw-w-full tw-max-w-xs"
+          className="tw-select tw-select-bordered tw-mt-4 tw-w-full tw-max-w-xs"
           id="inputGroupSelect01"
         >
           {menuOptions}

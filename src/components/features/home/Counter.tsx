@@ -9,7 +9,7 @@ const Counter: React.FC = () => {
   }, [count])
 
   return (
-    <div className="">
+    <div>
       <p className="tw-mb-4">You clicked {count} times</p>
       <button
         className="tw-btn tw-btn-outline tw-btn-accent tw-btn-sm tw-mx-1"
