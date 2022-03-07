@@ -48,8 +48,11 @@ const HomePage: React.FC = () => {
           <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="todos">
             Store Todos
           </Link>
-          <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="parents">
-            Parents
+          <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="useContext">
+            Use Context
+          </Link>
+          <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="composition">
+            Composition
           </Link>
           <div>
             {exampleButtons}

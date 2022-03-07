@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import Template from '../components/features/parents/Template'
+import Template from '../components/features/useContext/Template'
 import { DateContext, useDateContextValue } from '../hooks/UseDateContextHook'
 
-const ParentsPage: React.FC = () => {
+const UseContextPage: React.FC = () => {
   const dateContextValue = useDateContextValue()
   const { setCurrentDate, assignDate } = dateContextValue
 
@@ -14,7 +14,7 @@ const ParentsPage: React.FC = () => {
             Home
           </Link>
 
-          <h1>Parent</h1>
+          <h1>User Context</h1>
 
           <DateContext.Provider value={dateContextValue}>
             <Template />
@@ -40,4 +40,4 @@ const ParentsPage: React.FC = () => {
   )
 }
 
-export default ParentsPage
+export default UseContextPage
