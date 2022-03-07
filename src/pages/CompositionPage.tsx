@@ -1,0 +1,50 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Template from '../components/features/composition/Template'
+import Organism from '../components/features/composition/Organism'
+import Molecule from '../components/features/composition/Molecule'
+import Atom from '../components/features/composition/Atom'
+
+const UseContextPage: React.FC = () => {
+  const [date, setDate] = useState(new Date().toLocaleString())
+
+  const updateDateHandler = (
+    event: React.MouseEvent<HTMLButtonElement>,
+  ): void => {
+    event.preventDefault()
+    setDate(new Date().toLocaleString())
+  }
+
+  return (
+    <div className="tw-container tw-mx-auto">
+      <div className="tw-flex tw-min-h-screen tw-items-center tw-justify-center">
+        <div className="tw-w-[900px] tw-rounded-md tw-bg-slate-300 tw-py-16 tw-px-4 tw-text-center tw-shadow-3xl">
+          <Link className="tw-btn tw-btn-sm tw-mb-4" to="/">
+            Home
+          </Link>
+
+          <h1>Composition</h1>
+
+          <Template>
+            <Organism date={date}>
+              <Molecule>
+                <Atom date={date} onUpdate={updateDateHandler} />
+              </Molecule>
+            </Organism>
+          </Template>
+
+          <div className="tw-mt-4">
+            <button
+              className="tw-btn tw-btn-sm"
+              onClick={() => setDate(new Date().toLocaleString())}
+            >
+              Set Current Date
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default UseContextPage
