@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import StoreTodos from '../components/features/todos/StoreTodos'
+import { StoreTodos } from '../components/features/todos'
 
 const StoreTodosPage: React.FC = () => {
   return (

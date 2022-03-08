@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import clsx from 'clsx'
-import Counter from '../components/features/home/Counter'
-import CounterTitle from '../components/features/home/CounterTitle'
-import CounterReducer from '../components/features/home/CounterReducer'
-import MenuReducer from '../components/features/home/MenuReducer'
-import Memo from '../components/features/home/Memo'
+import {
+  Counter,
+  CounterTitle,
+  CounterReducer,
+  MenuReducer,
+  Memo,
+} from '../components/features/home'
 
 const EXAMPLES = {
   Counter,
