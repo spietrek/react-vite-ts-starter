@@ -2,7 +2,7 @@ import React from 'react'
 // import { useNavigate } from 'react-router-dom'
 // import { ROUTES } from '../resources/routes-constants'
 
-const NotFoundPage: React.FC = () => {
+const NotFoundPage = (): JSX.Element => {
   // const navigate = useNavigate()
 
   /**

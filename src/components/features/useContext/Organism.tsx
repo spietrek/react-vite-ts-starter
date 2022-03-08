@@ -1,6 +1,6 @@
 import { useDateContext } from '../../../hooks/UseDateContextHook'
 
-const Organism: React.FC = () => {
+const Organism = (): JSX.Element => {
   const { date, setCurrentDate, assignDate } = useDateContext()
 
   return (

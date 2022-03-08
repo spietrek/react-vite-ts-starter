@@ -1,6 +1,6 @@
 import Organism from './Organism'
 
-const Template: React.FC = () => {
+const Template = (): JSX.Element => {
   return (
     <div className="tw-bg-slate-50 tw-p-4">
       <h1>Template</h1>

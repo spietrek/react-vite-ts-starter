@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { StoreCounter } from '../components/features/storeCounter'
 
-const StoreCounterPage: React.FC = () => {
+const StoreCounterPage = (): JSX.Element => {
   return (
     <div className="tw-container tw-mx-auto">
       <div className="tw-flex tw-min-h-screen tw-items-center tw-justify-center">

@@ -1,4 +1,4 @@
-const InsSpinner: React.FC = () => {
+const InsSpinner = (): JSX.Element => {
   return (
     <div className="tw-my-4 tw-w-full tw-text-center">
       <svg

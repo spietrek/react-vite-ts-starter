@@ -21,7 +21,7 @@ type Examples = keyof typeof EXAMPLES
 
 const EXAMPLE_NAMES = Object.keys(EXAMPLES) as Examples[]
 
-const HomePage: React.FC = () => {
+const HomePage = (): JSX.Element => {
   const [example, setExample] = useState<Examples>('Counter')
 
   // eslint-disable-next-line security/detect-object-injection

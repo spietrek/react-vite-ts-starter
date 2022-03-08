@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { StoreTodos } from '../components/features/todos'
 
-const StoreTodosPage: React.FC = () => {
+const StoreTodosPage = (): JSX.Element => {
   return (
     <div className="tw-container tw-mx-auto">
       <div className="tw-flex tw-min-h-screen tw-items-center tw-justify-center">

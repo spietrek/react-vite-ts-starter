@@ -10,7 +10,7 @@ import {
 } from '../../../store/slices/todos/todosSlice'
 import Spinner from '../../atoms/Spinner'
 
-const StoreTodos: React.FC = () => {
+const StoreTodos = (): JSX.Element => {
   const count = useAppSelector((state: RootState) => state.todos.count)
   const isLoading = useAppSelector((state: RootState) => state.todos.isLoading)
   const completedTodosCount = useAppSelector((state: RootState) => {

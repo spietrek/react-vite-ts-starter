@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const DateDisplay: React.FC = () => {
+const DateDisplay = (): JSX.Element => {
   const [date, setDate] = useState('')
 
   /**

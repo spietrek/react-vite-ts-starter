@@ -9,7 +9,7 @@ const simulateProcessing = (iterations: number): string => {
   return `${iterations} iterations`
 }
 
-const Memo: React.FC = () => {
+const Memo = (): JSX.Element => {
   const [count, increment] = useCounter(500)
   const [show, setShow] = useToggle(true)
 

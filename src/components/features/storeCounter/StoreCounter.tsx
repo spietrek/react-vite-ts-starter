@@ -6,7 +6,7 @@ import {
   increment,
 } from '../../../store/slices/counter/counterSlice'
 
-const StoreCounter: React.FC = () => {
+const StoreCounter = (): JSX.Element => {
   const count = useAppSelector((state: RootState) => state.counter.value)
   const dispatch = useAppDispatch()
 

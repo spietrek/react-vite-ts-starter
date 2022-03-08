@@ -7,7 +7,7 @@ import {
   Atom,
 } from '../components/features/composition'
 
-const UseContextPage: React.FC = () => {
+const UseContextPage = (): JSX.Element => {
   const [date, setDate] = useState(new Date().toLocaleString())
 
   const updateDateHandler = (

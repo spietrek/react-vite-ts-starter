@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Template } from '../components/features/useContext'
 import { DateContext, useDateContextValue } from '../hooks/UseDateContextHook'
 
-const UseContextPage: React.FC = () => {
+const UseContextPage = (): JSX.Element => {
   const dateContextValue = useDateContextValue()
   const { setCurrentDate, assignDate } = dateContextValue
 
