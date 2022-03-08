@@ -8,7 +8,7 @@ import {
   longRetrieveTodos,
   completedTodosCountSelector,
 } from '../../../store/slices/todos/todosSlice'
-import Spinner from '../../atoms/Spinner'
+import SpinnerWrapper from '../../organisms/SpinnerWrapper'
 
 const StoreTodos = (): JSX.Element => {
   const count = useAppSelector((state: RootState) => state.todos.count)
@@ -19,10 +19,8 @@ const StoreTodos = (): JSX.Element => {
   const dispatch = useAppDispatch()
 
   return (
-    <div>
-      {isLoading && <Spinner />}
-
-      {!isLoading && (
+    <>
+      <SpinnerWrapper isLoading={isLoading}>
         <>
           <button
             className={clsx('tw-btn', 'tw-btn-accent', 'tw-btn-sm', {
@@ -57,7 +55,7 @@ const StoreTodos = (): JSX.Element => {
             Clear
           </button>
         </>
-      )}
+      </SpinnerWrapper>
 
       <div>
         Todos Count: <span>{count}</span>
@@ -65,7 +63,7 @@ const StoreTodos = (): JSX.Element => {
       <div>
         Completed Todos Count: <span>{completedTodosCount}</span>
       </div>
-    </div>
+    </>
   )
 }
 
