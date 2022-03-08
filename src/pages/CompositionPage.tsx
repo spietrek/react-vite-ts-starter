@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Template from '../components/features/composition/Template'
-import Organism from '../components/features/composition/Organism'
-import Molecule from '../components/features/composition/Molecule'
-import Atom from '../components/features/composition/Atom'
+import {
+  Template,
+  Organism,
+  Molecule,
+  Atom,
+} from '../components/features/composition'
 
 const UseContextPage: React.FC = () => {
   const [date, setDate] = useState(new Date().toLocaleString())
