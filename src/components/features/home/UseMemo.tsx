@@ -9,7 +9,7 @@ const simulateProcessing = (iterations: number): string => {
   return `${iterations} iterations`
 }
 
-const Memo = (): JSX.Element => {
+const UseMemo = (): JSX.Element => {
   const [count, increment] = useCounter(500)
   const [show, setShow] = useToggle(true)
 
@@ -37,4 +37,4 @@ const Memo = (): JSX.Element => {
   )
 }
 
-export default React.memo(Memo)
+export default React.memo(UseMemo)

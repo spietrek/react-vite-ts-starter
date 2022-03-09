@@ -2,19 +2,17 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import clsx from 'clsx'
 import {
-  Counter,
-  CounterTitle,
-  CounterReducer,
-  MenuReducer,
-  Memo,
+  UseState,
+  UseLifecycleEffect,
+  UseReducer,
+  UseMemo,
 } from '@/components/features/home'
 
 const EXAMPLES = {
-  Counter,
-  CounterTitle,
-  CounterReducer,
-  MenuReducer,
-  Memo,
+  UseState,
+  UseLifecycleEffect,
+  UseReducer,
+  UseMemo,
 }
 
 type Examples = keyof typeof EXAMPLES
@@ -22,7 +20,7 @@ type Examples = keyof typeof EXAMPLES
 const EXAMPLE_NAMES = Object.keys(EXAMPLES) as Examples[]
 
 const HomePage = (): JSX.Element => {
-  const [example, setExample] = useState<Examples>('Counter')
+  const [example, setExample] = useState<Examples>('UseState')
 
   // eslint-disable-next-line security/detect-object-injection
   const ExampleComponent = EXAMPLES[example]
@@ -35,8 +33,7 @@ const HomePage = (): JSX.Element => {
         'tw-btn-active': name === example,
       })}
     >
-      &lt;
-      {name} /&gt;
+      {name}
     </button>
   ))
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Counter = (): JSX.Element => {
+const UseState = (): JSX.Element => {
   const [count, setCount] = useState<number>(0)
   const [calculation, setCalculation] = useState(0)
 
@@ -28,4 +28,4 @@ const Counter = (): JSX.Element => {
   )
 }
 
-export default Counter
+export default UseState

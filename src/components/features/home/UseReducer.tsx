@@ -34,7 +34,7 @@ const resetAction: Action = {
   payload: 0,
 }
 
-const CounterReducer = (): JSX.Element => {
+const UseReducer = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
@@ -79,4 +79,4 @@ const reducer = (state: typeof initialState, action: Action): State => {
   }
 }
 
-export default CounterReducer
+export default UseReducer
