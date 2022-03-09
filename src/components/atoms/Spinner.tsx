@@ -1,4 +1,4 @@
-const InsSpinner = (): JSX.Element => {
+const Spinner = (): JSX.Element => {
   return (
     <div className="tw-my-4 tw-w-full tw-text-center">
       <svg
@@ -21,4 +21,4 @@ const InsSpinner = (): JSX.Element => {
   )
 }
 
-export default InsSpinner
+export default Spinner
