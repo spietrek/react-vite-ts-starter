@@ -4,7 +4,7 @@ import HomePage from '@/pages/HomePage'
 
 const StoreCounterPage = lazy(() => import('@/pages/StoreCounterPage'))
 const StoreTodosPage = lazy(() => import('@/pages/StoreTodosPage'))
-const UserContextPage = lazy(() => import('@/pages/UseContextPage'))
+const UseContextPage = lazy(() => import('@/pages/UseContextPage'))
 const CompositionPage = lazy(() => import('@/pages/CompositionPage'))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 
@@ -23,8 +23,8 @@ const AppRoutes = (): JSX.Element => {
       element: <StoreTodosPage />,
     },
     {
-      path: '/userContext',
-      element: <UserContextPage />,
+      path: '/use-context',
+      element: <UseContextPage />,
     },
     {
       path: '/composition',
