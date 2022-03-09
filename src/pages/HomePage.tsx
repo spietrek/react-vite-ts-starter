@@ -47,7 +47,7 @@ const HomePage = (): JSX.Element => {
           <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="todos">
             Store Todos
           </Link>
-          <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="useContext">
+          <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="use-context">
             Use Context
           </Link>
           <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="composition">
