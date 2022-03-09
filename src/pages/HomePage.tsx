@@ -7,7 +7,7 @@ import {
   CounterReducer,
   MenuReducer,
   Memo,
-} from '../components/features/home'
+} from '@/components/features/home'
 
 const EXAMPLES = {
   Counter,

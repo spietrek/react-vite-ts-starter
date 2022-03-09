@@ -1,4 +1,4 @@
-import { useDateContext } from '../../../hooks/UseDateContextHook'
+import { useDateContext } from '@/hooks/UseDateContextHook'
 
 const Organism = (): JSX.Element => {
   const { date, setCurrentDate, assignDate } = useDateContext()

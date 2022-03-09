@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLifecycleEffect } from '../../../hooks/UseLifecycleEffectHook'
+import { useLifecycleEffect } from '@/hooks/UseLifecycleEffectHook'
 
 const CounterTitle = (): JSX.Element => {
   const initDocTitle = 'React Starter Project'

@@ -1,14 +1,14 @@
 import React from 'react'
 import clsx from 'clsx'
-import type { RootState } from '../../../store'
-import { useAppSelector, useAppDispatch } from '../../../hooks/UseReduxHooks'
+import type { RootState } from '@/store'
+import { useAppSelector, useAppDispatch } from '@/hooks/UseReduxHooks'
 import {
   clear,
   retrieveTodos,
   longRetrieveTodos,
   completedTodosCountSelector,
-} from '../../../store/slices/todos/todosSlice'
-import SpinnerWrapper from '../../organisms/SpinnerWrapper'
+} from '@/store/slices/todos/todosSlice'
+import SpinnerWrapper from '@/components/organisms/SpinnerWrapper'
 
 const StoreTodos = (): JSX.Element => {
   const count = useAppSelector((state: RootState) => state.todos.count)

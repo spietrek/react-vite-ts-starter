@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { StoreCounter } from '../components/features/storeCounter'
+import { StoreCounter } from '@/components/features/storeCounter'
 
 const StoreCounterPage = (): JSX.Element => {
   return (

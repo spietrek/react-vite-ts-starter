@@ -1,10 +1,7 @@
 import React from 'react'
-import type { RootState } from '../../../store'
-import { useAppSelector, useAppDispatch } from '../../../hooks/UseReduxHooks'
-import {
-  decrement,
-  increment,
-} from '../../../store/slices/counter/counterSlice'
+import type { RootState } from '@/store'
+import { useAppSelector, useAppDispatch } from '@/hooks/UseReduxHooks'
+import { decrement, increment } from '@/store/slices/counter/counterSlice'
 
 const StoreCounter = (): JSX.Element => {
   const count = useAppSelector((state: RootState) => state.counter.value)

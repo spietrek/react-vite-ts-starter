@@ -1,4 +1,4 @@
-import Spinner from '../atoms/Spinner'
+import Spinner from '@/components/atoms/Spinner'
 
 interface SpinnerWrapperProps {
   isLoading: boolean
