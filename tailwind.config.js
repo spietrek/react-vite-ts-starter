@@ -20,6 +20,7 @@ module.exports = {
     require('daisyui'),
   ],
   daisyui: {
+    logs: false,
     styled: true,
     themes: ['light'],
     base: true,
