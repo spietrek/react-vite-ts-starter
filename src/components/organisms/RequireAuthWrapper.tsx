@@ -5,6 +5,7 @@ interface RequireAuthProps {
   children?: React.ReactNode
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const RequireAuth = ({ children }: RequireAuthProps): any => {
   const auth = useAuth()
   const location = useLocation()
