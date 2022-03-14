@@ -5,3 +5,4 @@ dist-ssr
 *.local
 src/assets/index.css
 app/styles/index.css
+.env.local.example
