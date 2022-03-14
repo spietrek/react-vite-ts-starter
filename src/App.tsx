@@ -1,13 +1,13 @@
-import RootComponent from './RootComponent'
-import { store } from './store'
 import { Provider } from 'react-redux'
-import './styles/index.css'
+import { store } from './store'
 import { AuthProvider } from '@/hooks/useAuth'
+import ShellPage from './pages/ShellPage'
+import './styles/index.css'
 
 const App = (): JSX.Element => (
   <Provider store={store}>
     <AuthProvider>
-      <RootComponent />
+      <ShellPage />
     </AuthProvider>
   </Provider>
 )
