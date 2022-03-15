@@ -15,7 +15,7 @@ const RequireAuth = ({ allowedRoles }: RequireAuthProps): any => {
   const validRoles =
     roles.find(role => allowedRoles.includes(role)) !== undefined
 
-  if (isAuthenticated && validRoles) {
+  if (isAuthenticated) {
     return validRoles ? (
       <Outlet />
     ) : (

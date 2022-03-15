@@ -12,6 +12,7 @@ const StoreTodosPage = lazy(() => import('@/pages/StoreTodosPage'))
 const UseContextPage = lazy(() => import('@/pages/UseContextPage'))
 const CompositionPage = lazy(() => import('@/pages/CompositionPage'))
 const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
+const UnauthorizedPage = lazy(() => import('@/pages/UnauthorizedPage'))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 
 const AppRoutes = (): JSX.Element => {
@@ -25,12 +26,17 @@ const AppRoutes = (): JSX.Element => {
           <Route path="hooks" element={<HooksPage />} />
           <Route path="counter" element={<StoreCounterPage />} />
           <Route path="todos" element={<StoreTodosPage />} />
-          <Route path="use-context" element={<UseContextPage />} />
-          <Route path="composition" element={<CompositionPage />} />
+          <Route path="unauthorized" element={<UnauthorizedPage />} />
 
-          {/* Protected Routes */}
+          {/* Admin Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[USER_ROLE.Admin]} />}>
             <Route path="settings" element={<SettingsPage />} />
+          </Route>
+
+          {/* Editor Protected Routes */}
+          <Route element={<RequireAuth allowedRoles={[USER_ROLE.Editor]} />}>
+            <Route path="use-context" element={<UseContextPage />} />
+            <Route path="composition" element={<CompositionPage />} />
           </Route>
 
           {/* Catch all route */}
