@@ -1,9 +1,12 @@
-import { lazy, Suspense } from 'react'
-import { useRoutes } from 'react-router-dom'
+import { Suspense, lazy } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { USER_ROLE } from '@/constants'
+import LayoutPage from '@/pages/LayoutPage'
 import HomePage from '@/pages/HomePage'
 import LoginPage from '@/pages/LoginPage'
 import RequireAuth from '@/components/organisms/RequireAuthWrapper'
 
+const HooksPage = lazy(() => import('@/pages/HooksPage'))
 const StoreCounterPage = lazy(() => import('@/pages/StoreCounterPage'))
 const StoreTodosPage = lazy(() => import('@/pages/StoreTodosPage'))
 const UseContextPage = lazy(() => import('@/pages/UseContextPage'))
@@ -12,46 +15,30 @@ const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 
 const AppRoutes = (): JSX.Element => {
-  const routes = useRoutes([
-    {
-      path: '/',
-      element: <HomePage />,
-    },
-    {
-      path: '/counter',
-      element: <StoreCounterPage />,
-    },
-    {
-      path: '/todos',
-      element: <StoreTodosPage />,
-    },
-    {
-      path: '/use-context',
-      element: <UseContextPage />,
-    },
-    {
-      path: '/composition',
-      element: <CompositionPage />,
-    },
-    {
-      path: '/login',
-      element: <LoginPage />,
-    },
-    {
-      path: '/settings',
-      element: (
-        <RequireAuth>
-          <SettingsPage />
-        </RequireAuth>
-      ),
-    },
-    {
-      path: '*',
-      element: <NotFoundPage />,
-    },
-  ])
+  return (
+    <Suspense fallback={<div>Loading... </div>}>
+      <Routes>
+        <Route path="/" element={<LayoutPage />}>
+          {/* Public Routes */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="hooks" element={<HooksPage />} />
+          <Route path="counter" element={<StoreCounterPage />} />
+          <Route path="todos" element={<StoreTodosPage />} />
+          <Route path="use-context" element={<UseContextPage />} />
+          <Route path="composition" element={<CompositionPage />} />
 
-  return <Suspense fallback={<div>Loading...</div>}>{routes}</Suspense>
+          {/* Protected Routes */}
+          <Route element={<RequireAuth allowedRoles={[USER_ROLE.Admin]} />}>
+            <Route path="settings" element={<SettingsPage />} />
+          </Route>
+
+          {/* Catch all route */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </Suspense>
+  )
 }
 
 export default AppRoutes

@@ -1,12 +1,13 @@
+import clsx from 'clsx'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 
 const LoginPage = (): JSX.Element => {
   const navigate = useNavigate()
-  const { state } = useLocation() as { state: { path: string } }
+  const { state } = useLocation() as { state: { from: { pathname: string } } }
   const auth = useAuth()
-  const { path } = (state ?? {}) as { path: string }
-  const from = path ?? '/'
+  const { from } = (state ?? {}) as { from: { pathname: string } }
+  const { pathname } = from ?? '/'
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
@@ -15,7 +16,7 @@ const LoginPage = (): JSX.Element => {
     const username = formData.get('username') as string
 
     auth.login(username, () => {
-      navigate(from, { replace: true })
+      navigate(pathname, { replace: true })
     })
   }
 
@@ -27,7 +28,7 @@ const LoginPage = (): JSX.Element => {
             Home
           </Link>
 
-          <p>You must log in to view the page at {from}</p>
+          <p>You must log in to view the page at {pathname}</p>
 
           <div className="tw-mt-4 tw-flex tw-items-center tw-justify-center">
             <div className="tw-w-1/3 tw-rounded-lg tw-bg-slate-200 tw-p-4">
@@ -43,13 +44,15 @@ const LoginPage = (): JSX.Element => {
                     type="username"
                     name="username"
                     className="tw-block tw-w-full tw-rounded-lg tw-border tw-border-gray-300 tw-bg-gray-50 tw-p-2.5 tw-text-sm tw-text-gray-900 focus:tw-border-blue-500 focus:tw-ring-blue-500"
-                    placeholder="Enter User Name"
                     required
                   />
                 </div>
                 <button
                   type="submit"
-                  className="tw-w-full tw-rounded-lg tw-bg-blue-700 tw-px-5 tw-py-2.5 tw-text-center tw-text-sm tw-font-medium tw-text-white hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-ring-blue-300 sm:tw-w-auto"
+                  className={clsx('tw-btn', 'tw-btn-accent', 'tw-btn-sm', {
+                    'tw-loading': auth.loading,
+                  })}
+                  aria-label="Submit"
                 >
                   Submit
                 </button>

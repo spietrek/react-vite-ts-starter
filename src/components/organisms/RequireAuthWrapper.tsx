@@ -1,20 +1,31 @@
-import { Navigate, useLocation } from 'react-router-dom'
+import { Navigate, useLocation, Outlet } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
+import { USER_ROLE } from '@/constants'
 
 interface RequireAuthProps {
-  children?: React.ReactNode
+  allowedRoles: USER_ROLE[]
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const RequireAuth = ({ children }: RequireAuthProps): any => {
+const RequireAuth = ({ allowedRoles }: RequireAuthProps): any => {
   const auth = useAuth()
   const location = useLocation()
+  const roles = auth?.roles ?? []
+  const isAuthenticated = auth?.authenticated ?? false
+  const validRoles =
+    roles.find(role => allowedRoles.includes(role)) !== undefined
 
-  if (auth.user === null) {
-    return <Navigate to="/login" replace state={{ path: location.pathname }} />
+  if (isAuthenticated && validRoles) {
+    return validRoles ? (
+      <Outlet />
+    ) : (
+      <Navigate to="/unauthorized" state={{ from: location }} replace />
+    )
   }
 
-  return children
+  if (!isAuthenticated) {
+    return <Navigate to="/login" state={{ from: location }} replace />
+  }
 }
 
 export default RequireAuth
