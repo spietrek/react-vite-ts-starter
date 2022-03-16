@@ -2,6 +2,7 @@
 import { useState, createContext, useContext } from 'react'
 import { USER_ROLE } from '@/constants'
 import AuthDataService from '@/services/auth.service'
+import { timeout } from '@/utilities'
 
 interface AuthContextType {
   loading: boolean
@@ -13,12 +14,6 @@ interface AuthContextType {
 }
 
 const AuthContext = createContext<AuthContextType>(null!)
-
-const timeout = (ms: number): Promise<unknown> => {
-  return new Promise(resolve => {
-    setTimeout(resolve, ms)
-  })
-}
 
 export const AuthProvider = ({
   children,

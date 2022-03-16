@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit'
 import type { RootState } from '@/store'
 import TodosDataService from '@/services/todos.service'
+import { timeout } from '@/utilities'
 
 interface TodoItemState {
   id: number
@@ -21,12 +22,6 @@ export const retrieveTodos = createAsyncThunk('todos/retrieve', async () => {
   const res = await TodosDataService.getAll()
   return res.data as TodoItemState[]
 })
-
-const timeout = (ms: number): Promise<unknown> => {
-  return new Promise(resolve => {
-    setTimeout(resolve, ms)
-  })
-}
 
 export const longRetrieveTodos = createAsyncThunk(
   'todos/longRetrieve',
