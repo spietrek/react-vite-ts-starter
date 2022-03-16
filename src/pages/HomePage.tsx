@@ -21,6 +21,9 @@ const HomePage = (): JSX.Element => {
             <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="composition">
               Composition
             </Link>
+            <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="hocs">
+              HOCs
+            </Link>
             <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="settings">
               Settings
             </Link>

@@ -102,6 +102,7 @@
     ],
     "react/jsx-boolean-value": "error",
     "react/jsx-curly-brace-presence": "error",
+    "react/display-name": "off",
     "react/jsx-filename-extension": [
       "error",
       {
