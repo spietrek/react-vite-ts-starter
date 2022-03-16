@@ -22,8 +22,6 @@ const AppRoutes = (): JSX.Element => {
       <Routes>
         <Route path="/" element={<LayoutPage />}>
           {/* Public Routes */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="hocs" element={<HocsPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
 
@@ -34,15 +32,17 @@ const AppRoutes = (): JSX.Element => {
 
           {/* Editor Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin, UR.Editor]} />}>
-            <Route path="use-context" element={<UseContextPage />} />
-            <Route path="composition" element={<CompositionPage />} />
+            <Route path="counter" element={<StoreCounterPage />} />
+            <Route path="todos" element={<StoreTodosPage />} />
           </Route>
 
           {/* User/Admin Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin, UR.User]} />}>
+            <Route path="/" element={<HomePage />} />
             <Route path="hooks" element={<HooksPage />} />
-            <Route path="counter" element={<StoreCounterPage />} />
-            <Route path="todos" element={<StoreTodosPage />} />
+            <Route path="hocs" element={<HocsPage />} />
+            <Route path="use-context" element={<UseContextPage />} />
+            <Route path="composition" element={<CompositionPage />} />
           </Route>
 
           {/* Catch all route */}
