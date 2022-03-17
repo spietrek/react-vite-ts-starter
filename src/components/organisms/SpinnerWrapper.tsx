@@ -5,11 +5,11 @@ interface SpinnerWrapperProps {
   children?: React.ReactNode
 }
 
-const StoreTodosPage = ({
+const SpinnerWrapper = ({
   isLoading,
   children,
 }: SpinnerWrapperProps): JSX.Element => {
   return <>{isLoading ? <Spinner /> : children}</>
 }
 
-export default StoreTodosPage
+export default SpinnerWrapper
