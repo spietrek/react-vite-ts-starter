@@ -1,8 +1,15 @@
 import clsx from 'clsx'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 
 const LoginPage = (): JSX.Element => {
+  const userRef = useRef<HTMLInputElement>(null)
+
+  const [user, setUser] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+
   const navigate = useNavigate()
   const { state } = useLocation() as { state: { from: { pathname: string } } }
   const auth = useAuth()
@@ -16,9 +23,23 @@ const LoginPage = (): JSX.Element => {
     const username = formData.get('username') as string
 
     auth.login(username, () => {
-      navigate(pathname, { replace: true })
+      if (auth.authenticated) {
+        navigate(pathname, { replace: true })
+      } else {
+        setError('Invalid credentials')
+      }
     })
   }
+
+  useEffect(() => {
+    if (userRef !== null) {
+      userRef.current?.focus()
+    }
+  }, [])
+
+  useEffect(() => {
+    setError('')
+  }, [user, password])
 
   return (
     <section className="tw-container tw-mx-auto">
@@ -28,6 +49,12 @@ const LoginPage = (): JSX.Element => {
             Home
           </Link>
 
+          <p
+            className={error.length > 0 ? 'errmsg' : 'offscreen'}
+            aria-live="assertive"
+          >
+            {error}
+          </p>
           <p>You must log in to view the page at {pathname}</p>
 
           <div className="tw-mt-4 tw-flex tw-items-center tw-justify-center">
@@ -43,14 +70,32 @@ const LoginPage = (): JSX.Element => {
                   <input
                     type="username"
                     name="username"
+                    ref={userRef}
+                    onChange={e => setUser(e.target.value)}
                     className="tw-block tw-w-full tw-rounded-lg tw-border tw-border-gray-300 tw-bg-gray-50 tw-p-2.5 tw-text-sm tw-text-gray-900 focus:tw-border-blue-500 focus:tw-ring-blue-500"
                     required
                   />
                 </div>
+                <div className="tw-mb-6">
+                  <label
+                    htmlFor="password"
+                    className="tw-mb-2 tw-block tw-text-left tw-text-sm tw-font-medium tw-text-gray-900"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={e => setPassword(e.target.value)}
+                    className="tw-block tw-w-full tw-rounded-lg tw-border tw-border-gray-300 tw-bg-gray-50 tw-p-2.5 tw-text-sm tw-text-gray-900 focus:tw-border-blue-500 focus:tw-ring-blue-500"
+                    required
+                  />
+                </div>
+
                 <button
                   type="submit"
                   className={clsx('tw-btn', 'tw-btn-accent', 'tw-btn-sm', {
-                    'tw-loading': auth.loading,
+                    'tw-loading': auth?.loading ?? false,
                   })}
                   aria-label="Submit"
                 >
