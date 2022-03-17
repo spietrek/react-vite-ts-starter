@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { useState, useEffect, useRef } from 'react'
-import { useNavigate, useLocation, Link } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 
 const LoginPage = (): JSX.Element => {
@@ -45,10 +45,6 @@ const LoginPage = (): JSX.Element => {
     <section className="tw-container tw-mx-auto">
       <div className="tw-flex tw-min-h-screen tw-items-center tw-justify-center">
         <div className="tw-w-[900px] tw-rounded-md tw-bg-slate-300 tw-py-16 tw-px-4 tw-text-center tw-shadow-3xl">
-          <Link className="tw-btn tw-btn-sm tw-mb-4" to="/">
-            Home
-          </Link>
-
           <p>You must log in to view the page at {pathname}</p>
 
           <div className="tw-mt-4 tw-flex tw-items-center tw-justify-center">
@@ -110,7 +106,7 @@ const LoginPage = (): JSX.Element => {
 
                 <button
                   type="submit"
-                  className={clsx('tw-btn', 'tw-btn-accent', 'tw-btn-sm', {
+                  className={clsx('tw-btn', 'tw-btn-sm', {
                     'tw-loading': auth?.loading ?? false,
                   })}
                   aria-label="Submit"
