@@ -22,11 +22,11 @@ const LoginPage = (): JSX.Element => {
     const formData = new FormData(event.currentTarget)
     const username = formData.get('username') as string
 
-    auth.login(username, () => {
-      if (auth.authenticated) {
+    void auth.login(username).then(res => {
+      if (res?.success ?? false) {
         navigate(pathname, { replace: true })
       } else {
-        setError('Invalid credentials')
+        setError(res?.error ?? 'Unknown Error')
       }
     })
   }
@@ -70,6 +70,7 @@ const LoginPage = (): JSX.Element => {
                   <input
                     type="username"
                     name="username"
+                    autoComplete="off"
                     ref={userRef}
                     onChange={e => setUser(e.target.value)}
                     className="tw-block tw-w-full tw-rounded-lg tw-border tw-border-gray-300 tw-bg-gray-50 tw-p-2.5 tw-text-sm tw-text-gray-900 focus:tw-border-blue-500 focus:tw-ring-blue-500"

@@ -5,7 +5,7 @@ import { AxiosResponse } from 'axios'
 interface UserProps {
   userName: string
   email: string
-  password: string
+  password?: string
 }
 
 class AuthDataService {
@@ -16,6 +16,12 @@ class AuthDataService {
     return await http.post('https://reqres.in/api/login', {
       email,
       password,
+    })
+  }
+
+  async loginFail({ email }: UserProps): Promise<AxiosResponse<any, any>> {
+    return await http.post('https://reqres.in/api/login', {
+      email,
     })
   }
 }

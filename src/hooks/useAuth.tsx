@@ -5,13 +5,17 @@ import { USER_ROLE } from '@/constants'
 import AuthDataService from '@/services/auth.service'
 import { timeout } from '@/utilities'
 
+export interface LoginResponseType {
+  success: boolean
+  error: string | null
+}
 interface AuthContextType {
   loading: boolean
   authenticated: boolean
   user: string | null
   roles: USER_ROLE[]
-  error: string | null
-  login: (user: string, callback: VoidFunction) => void
+  errorMsg: string
+  login: (userName: string) => Promise<LoginResponseType | undefined>
   logout: (callback: VoidFunction) => void
 }
 
@@ -26,47 +30,53 @@ export const AuthProvider = ({
   const [authenticated, setAuthenticated] = useState<boolean>(false)
   const [user, setUser] = useState<string | null>(null)
   const [roles, setRoles] = useState<USER_ROLE[]>([])
-  const [error, setError] = useState<string | null>('')
+  const [errorMsg, setErrorMsg] = useState<string>('')
 
   const login = async (
     userName: string,
-    callback: VoidFunction,
-  ): Promise<void> => {
+  ): Promise<LoginResponseType | undefined> => {
+    let tempErrorMsg = ''
+    setLoading(true)
     try {
-      setLoading(true)
       const tempUser = {
         userName,
         email: 'eve.holt@reqres.in',
         password: 'cityslicka',
       }
-      await timeout(3000)
-      const res = await AuthDataService.login(tempUser)
+      await timeout(1500)
+      const res = await AuthDataService.loginFail(tempUser)
+      setLoading(false)
       if (res.status === 200) {
         setUser(userName)
         setAuthenticated(true)
         setRoles([USER_ROLE.Admin])
+        tempErrorMsg = ''
+        return { success: true, error: null }
       }
     } catch (err) {
       if (axios.isAxiosError(err)) {
         if (err.response == null) {
-          setError('No Server Response')
+          tempErrorMsg = 'No Server Response'
         } else if (err.response.status === 400) {
-          setError('Missing Username or Password')
+          tempErrorMsg = 'Missing Username or Password'
         } else if (err.response.status === 401) {
-          setError('Invalid credentials')
+          tempErrorMsg = 'Invalid credentials'
         }
       } else {
-        setError('Unknown Error')
+        tempErrorMsg = 'Unknown Error'
       }
+      return { success: false, error: tempErrorMsg }
+    } finally {
+      setErrorMsg(tempErrorMsg)
+      setLoading(false)
     }
-
-    callback()
-    setLoading(false)
   }
 
   const logout = (callback: VoidFunction): void => {
     setUser(null)
     setAuthenticated(false)
+    setRoles([])
+    setErrorMsg('')
     callback()
   }
 
@@ -75,7 +85,7 @@ export const AuthProvider = ({
     authenticated,
     user,
     roles,
-    error,
+    errorMsg,
     login,
     logout,
   }
