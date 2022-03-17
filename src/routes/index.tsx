@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { USER_ROLE as UR } from '@/constants'
+import Spinner from '@/components/atoms/Spinner'
 import LayoutPage from '@/pages/LayoutPage'
 import HomePage from '@/pages/HomePage'
 import LoginPage from '@/pages/LoginPage'
@@ -18,7 +19,7 @@ const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 
 const AppRoutes = (): JSX.Element => {
   return (
-    <Suspense fallback={<div>Loading... </div>}>
+    <Suspense fallback={<Spinner />}>
       <Routes>
         <Route path="/" element={<LayoutPage />}>
           {/* Public Routes */}
