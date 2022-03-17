@@ -31,13 +31,13 @@ const AppRoutes = (): JSX.Element => {
             <Route path="settings" element={<SettingsPage />} />
           </Route>
 
-          {/* Editor Protected Routes */}
+          {/* Admin/Editor Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin, UR.Editor]} />}>
             <Route path="counter" element={<StoreCounterPage />} />
             <Route path="todos" element={<StoreTodosPage />} />
           </Route>
 
-          {/* User/Admin Protected Routes */}
+          {/* Admin/User Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin, UR.User]} />}>
             <Route path="/" element={<HomePage />} />
             <Route path="hooks" element={<HooksPage />} />

@@ -4,6 +4,7 @@ import axios from 'axios'
 import { USER_ROLE } from '@/constants'
 import AuthDataService from '@/services/auth.service'
 import { timeout } from '@/utilities'
+import { users } from '@/stories/data/users'
 
 export interface LoginResponseType {
   success: boolean
@@ -32,6 +33,14 @@ export const AuthProvider = ({
   const [roles, setRoles] = useState<USER_ROLE[]>([])
   const [errorMsg, setErrorMsg] = useState<string>('')
 
+  const isValidUser = (userName: string): boolean => {
+    return users.some(user => user.userName === userName)
+  }
+
+  const getUserRoles = (userName: string): USER_ROLE[] => {
+    return users.find(user => user.userName === userName)?.roles ?? []
+  }
+
   const login = async (
     userName: string,
   ): Promise<LoginResponseType | undefined> => {
@@ -44,14 +53,17 @@ export const AuthProvider = ({
         password: 'cityslicka',
       }
       await timeout(1500)
-      const res = await AuthDataService.loginFail(tempUser)
+      const res = await AuthDataService.login(tempUser)
       setLoading(false)
-      if (res.status === 200) {
+      if (isValidUser(userName) && res.status === 200) {
         setUser(userName)
         setAuthenticated(true)
-        setRoles([USER_ROLE.Admin])
+        setRoles(getUserRoles(userName))
         tempErrorMsg = ''
         return { success: true, error: null }
+      } else {
+        tempErrorMsg = 'Invalid User'
+        return { success: false, error: tempErrorMsg }
       }
     } catch (err) {
       if (axios.isAxiosError(err)) {
