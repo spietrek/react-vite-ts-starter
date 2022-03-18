@@ -25,7 +25,6 @@ const AppRoutes = (): JSX.Element => {
         <Route path="/" element={<LayoutPage />}>
           {/* Public Routes */}
           <Route path="login" element={<LoginPage />} />
-          <Route path="tuples" element={<TuplesPage />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
 
           {/* Admin Protected Routes */}
@@ -46,6 +45,7 @@ const AppRoutes = (): JSX.Element => {
             <Route path="hocs" element={<HocsPage />} />
             <Route path="use-context" element={<UseContextPage />} />
             <Route path="composition" element={<CompositionPage />} />
+            <Route path="tuples" element={<TuplesPage />} />
           </Route>
 
           {/* Catch all route */}
