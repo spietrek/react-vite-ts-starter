@@ -13,10 +13,13 @@ export interface LoginResponseType {
 interface AuthContextType {
   loading: boolean
   authenticated: boolean
-  user: string | null
+  email: string | null
   roles: USER_ROLE[]
   errorMsg: string
-  login: (userName: string) => Promise<LoginResponseType | undefined>
+  login: (
+    email: string,
+    password: string,
+  ) => Promise<LoginResponseType | undefined>
   logout: (callback: VoidFunction) => void
 }
 
@@ -29,36 +32,36 @@ export const AuthProvider = ({
 }): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false)
   const [authenticated, setAuthenticated] = useState<boolean>(false)
-  const [user, setUser] = useState<string | null>(null)
+  const [email, setEmail] = useState<string | null>(null)
   const [roles, setRoles] = useState<USER_ROLE[]>([])
   const [errorMsg, setErrorMsg] = useState<string>('')
 
-  const isValidUser = (userName: string): boolean => {
-    return users.some(user => user.userName === userName)
+  const isValidUser = (email: string): boolean => {
+    return users.some(user => user.email === email)
   }
 
-  const getUserRoles = (userName: string): USER_ROLE[] => {
-    return users.find(user => user.userName === userName)?.roles ?? []
+  const getUserRoles = (email: string): USER_ROLE[] => {
+    return users.find(user => user.email === email)?.roles ?? []
   }
 
   const login = async (
-    userName: string,
+    email: string,
+    password: string,
   ): Promise<LoginResponseType | undefined> => {
     let tempErrorMsg = ''
     setLoading(true)
     try {
       const tempUser = {
-        userName,
         email: 'eve.holt@reqres.in',
         password: 'cityslicka',
       }
       await timeout(1500)
       const res = await AuthDataService.login(tempUser)
       setLoading(false)
-      if (isValidUser(userName) && res.status === 200) {
-        setUser(userName)
+      if (isValidUser(email) && res.status === 200) {
+        setEmail(email)
         setAuthenticated(true)
-        setRoles(getUserRoles(userName))
+        setRoles(getUserRoles(email))
         tempErrorMsg = ''
         return { success: true, error: null }
       } else {
@@ -70,7 +73,9 @@ export const AuthProvider = ({
         if (err.response == null) {
           tempErrorMsg = 'No Server Response'
         } else if (err.response.status === 400) {
-          tempErrorMsg = 'Missing Username or Password'
+          const { data } = err.response
+          const { error } = data
+          tempErrorMsg = error ?? 'Missing Email or Password'
         } else if (err.response.status === 401) {
           tempErrorMsg = 'Invalid credentials'
         }
@@ -85,7 +90,7 @@ export const AuthProvider = ({
   }
 
   const logout = (callback: VoidFunction): void => {
-    setUser(null)
+    setEmail(null)
     setAuthenticated(false)
     setRoles([])
     setErrorMsg('')
@@ -95,7 +100,7 @@ export const AuthProvider = ({
   const value = {
     loading,
     authenticated,
-    user,
+    email,
     roles,
     errorMsg,
     login,

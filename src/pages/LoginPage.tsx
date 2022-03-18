@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 
 const LoginPage = (): JSX.Element => {
-  const userRef = useRef<HTMLInputElement>(null)
+  const emailRef = useRef<HTMLInputElement>(null)
 
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
@@ -20,9 +20,10 @@ const LoginPage = (): JSX.Element => {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget)
-    const username = formData.get('username') as string
+    const email = formData.get('email') as string
+    const password = formData.get('password') as string
 
-    void auth.login(username).then(res => {
+    void auth.login(email, password).then(res => {
       if (res?.success ?? false) {
         navigate(pathname, { replace: true })
       } else {
@@ -32,8 +33,8 @@ const LoginPage = (): JSX.Element => {
   }
 
   useEffect(() => {
-    if (userRef !== null) {
-      userRef.current?.focus()
+    if (emailRef !== null) {
+      emailRef.current?.focus()
     }
   }, [])
 
@@ -73,16 +74,16 @@ const LoginPage = (): JSX.Element => {
               <form onSubmit={handleSubmit}>
                 <div className="tw-mb-6">
                   <label
-                    htmlFor="username"
+                    htmlFor="email"
                     className="tw-mb-2 tw-block tw-text-left tw-text-sm tw-font-medium tw-text-gray-900"
                   >
-                    User Name
+                    Email
                   </label>
                   <input
-                    type="username"
-                    name="username"
+                    type="email"
+                    name="email"
                     autoComplete="off"
-                    ref={userRef}
+                    ref={emailRef}
                     onChange={e => setUser(e.target.value)}
                     className="tw-block tw-w-full tw-rounded-lg tw-border tw-border-gray-300 tw-bg-gray-50 tw-p-2.5 tw-text-sm tw-text-gray-900 focus:tw-border-blue-500 focus:tw-ring-blue-500"
                     required

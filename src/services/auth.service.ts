@@ -3,7 +3,6 @@ import http from './http.service'
 import { AxiosResponse } from 'axios'
 
 interface UserProps {
-  userName: string
   email: string
   password?: string
 }
