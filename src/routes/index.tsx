@@ -13,6 +13,7 @@ const StoreTodosPage = lazy(() => import('@/pages/StoreTodosPage'))
 const UseContextPage = lazy(() => import('@/pages/UseContextPage'))
 const CompositionPage = lazy(() => import('@/pages/CompositionPage'))
 const TuplesPage = lazy(() => import('@/pages/TuplesPage'))
+const CalculatorPage = lazy(() => import('@/pages/CalculatorPage'))
 const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
 const HocsPage = lazy(() => import('@/pages/HocsPage'))
 const UnauthorizedPage = lazy(() => import('@/pages/UnauthorizedPage'))
@@ -46,6 +47,7 @@ const AppRoutes = (): JSX.Element => {
             <Route path="use-context" element={<UseContextPage />} />
             <Route path="composition" element={<CompositionPage />} />
             <Route path="tuples" element={<TuplesPage />} />
+            <Route path="calculator" element={<CalculatorPage />} />
           </Route>
 
           {/* Catch all route */}
