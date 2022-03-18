@@ -26,6 +26,9 @@ const HomePage = (): JSX.Element => {
               >
                 Composition
               </Link>
+              <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="tuples">
+                Tuples
+              </Link>
             </div>
 
             <div className="tw-divider" />
