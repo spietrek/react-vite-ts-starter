@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
+import { useLocationPathName } from '@/hooks/useLocationPathName'
 
 const LoginPage = (): JSX.Element => {
   const [user, setUser] = useState('')
@@ -10,10 +11,8 @@ const LoginPage = (): JSX.Element => {
   const ignoreTabIndex = -1
 
   const navigate = useNavigate()
-  const { state } = useLocation() as { state: { from: { pathname: string } } }
   const auth = useAuth()
-  const { from } = (state ?? {}) as { from: { pathname: string } }
-  const { pathname } = from ?? '/'
+  const pathName = useLocationPathName('/')
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
@@ -24,7 +23,7 @@ const LoginPage = (): JSX.Element => {
 
     void auth.login(email, password).then(res => {
       if (res?.success ?? false) {
-        navigate(pathname, { replace: true })
+        navigate(pathName, { replace: true })
       } else {
         setError(res?.error ?? 'Unknown Error')
       }
