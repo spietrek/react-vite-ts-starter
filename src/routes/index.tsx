@@ -6,18 +6,19 @@ import LayoutPage from '@/pages/LayoutPage'
 import LoginPage from '@/pages/LoginPage'
 import RequireAuth from '@/components/organisms/RequireAuthWrapper'
 
+const CalculatorPage = lazy(() => import('@/pages/CalculatorPage'))
+const CompositionPage = lazy(() => import('@/pages/CompositionPage'))
+const HocsPage = lazy(() => import('@/pages/HocsPage'))
 const HomePage = lazy(() => import('@/pages/HomePage'))
 const HooksPage = lazy(() => import('@/pages/HooksPage'))
+const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
+const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
 const StoreCounterPage = lazy(() => import('@/pages/StoreCounterPage'))
 const StoreTodosPage = lazy(() => import('@/pages/StoreTodosPage'))
-const UseContextPage = lazy(() => import('@/pages/UseContextPage'))
-const CompositionPage = lazy(() => import('@/pages/CompositionPage'))
+const SuspensePage = lazy(() => import('@/pages/SuspensePage'))
 const TuplesPage = lazy(() => import('@/pages/TuplesPage'))
-const CalculatorPage = lazy(() => import('@/pages/CalculatorPage'))
-const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
-const HocsPage = lazy(() => import('@/pages/HocsPage'))
 const UnauthorizedPage = lazy(() => import('@/pages/UnauthorizedPage'))
-const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
+const UseContextPage = lazy(() => import('@/pages/UseContextPage'))
 
 const AppRoutes = (): JSX.Element => {
   return (
@@ -27,6 +28,7 @@ const AppRoutes = (): JSX.Element => {
           {/* Public Routes */}
           <Route path="login" element={<LoginPage />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
+          <Route path="suspense" element={<SuspensePage />} />
 
           {/* Admin Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin]} />}>
