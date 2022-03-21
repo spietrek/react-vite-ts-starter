@@ -17,7 +17,8 @@
     "lintfix": "eslint --ext .ts,.tsx --ignore-path .gitignore --fix src",
     "build:css": "postcss src/styles/index.css -o app/styles/index.css --env production",
     "preview:css": "postcss src/styles/index.css -o app/assets/index.css",
-    "build:run": "yarn build:css && yarn build"
+    "build:run": "yarn build:css && yarn build",
+    "data-server": "json-server --watch app/db.json --port 3004"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
