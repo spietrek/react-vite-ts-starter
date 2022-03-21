@@ -1,6 +1,6 @@
 import React from 'react'
 import type { RootState } from '@/store'
-import { useAppSelector, useAppDispatch } from '@/hooks/UseReduxHooks'
+import { useAppSelector, useAppDispatch } from '@/hooks/useReduxHooks'
 import { decrement, increment } from '@/store/slices/counter/counterSlice'
 
 const StoreCounter = (): JSX.Element => {
