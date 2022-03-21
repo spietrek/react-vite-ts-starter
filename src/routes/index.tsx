@@ -4,7 +4,7 @@ import { USER_ROLE as UR } from '@/constants'
 import Spinner from '@/components/atoms/Spinner'
 import LayoutPage from '@/pages/LayoutPage'
 import LoginPage from '@/pages/LoginPage'
-import RequireAuth from '@/components/organisms/RequireAuthWrapper'
+import RequireAuth from '@/components/organisms/RequireAuth'
 
 const CalculatorPage = lazy(() => import('@/pages/CalculatorPage'))
 const CompositionPage = lazy(() => import('@/pages/CompositionPage'))
@@ -15,6 +15,7 @@ const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
 const StoreCounterPage = lazy(() => import('@/pages/StoreCounterPage'))
 const StoreTodosPage = lazy(() => import('@/pages/StoreTodosPage'))
+const ApiPage = lazy(() => import('@/pages/ApiPage'))
 const TuplesPage = lazy(() => import('@/pages/TuplesPage'))
 const UnauthorizedPage = lazy(() => import('@/pages/UnauthorizedPage'))
 const UseContextPage = lazy(() => import('@/pages/UseContextPage'))
@@ -27,6 +28,7 @@ const AppRoutes = (): JSX.Element => {
           {/* Public Routes */}
           <Route path="login" element={<LoginPage />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
+          <Route path="api" element={<ApiPage />} />
 
           {/* Admin Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin]} />}>
