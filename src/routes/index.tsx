@@ -15,7 +15,6 @@ const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
 const StoreCounterPage = lazy(() => import('@/pages/StoreCounterPage'))
 const StoreTodosPage = lazy(() => import('@/pages/StoreTodosPage'))
-const SuspensePage = lazy(() => import('@/pages/SuspensePage'))
 const TuplesPage = lazy(() => import('@/pages/TuplesPage'))
 const UnauthorizedPage = lazy(() => import('@/pages/UnauthorizedPage'))
 const UseContextPage = lazy(() => import('@/pages/UseContextPage'))
@@ -28,7 +27,6 @@ const AppRoutes = (): JSX.Element => {
           {/* Public Routes */}
           <Route path="login" element={<LoginPage />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
-          <Route path="suspense" element={<SuspensePage />} />
 
           {/* Admin Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin]} />}>
