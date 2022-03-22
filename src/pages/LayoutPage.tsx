@@ -4,7 +4,7 @@ import { useAuth } from '@/hooks/useAuth'
 const LayoutPage = (): JSX.Element => {
   const navigate = useNavigate()
   const auth = useAuth()
-  const { authenticated } = auth
+  const { authenticated } = auth ?? false
 
   const handleLogout = (): void => {
     void auth.logout(() => {
