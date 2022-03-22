@@ -6,7 +6,6 @@ interface RequireAuthProps {
   allowedRoles: USER_ROLE[]
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const RequireAuth = ({ allowedRoles }: RequireAuthProps): JSX.Element => {
   const auth = useAuth()
   const location = useLocation()
