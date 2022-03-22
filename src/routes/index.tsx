@@ -28,7 +28,6 @@ const AppRoutes = (): JSX.Element => {
           {/* Public Routes */}
           <Route path="login" element={<LoginPage />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
-          <Route path="api" element={<ApiPage />} />
 
           {/* Admin Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin]} />}>
@@ -39,6 +38,7 @@ const AppRoutes = (): JSX.Element => {
           <Route element={<RequireAuth allowedRoles={[UR.Admin, UR.Editor]} />}>
             <Route path="counter" element={<StoreCounterPage />} />
             <Route path="todos" element={<StoreTodosPage />} />
+            <Route path="api" element={<ApiPage />} />
           </Route>
 
           {/* Admin/User Protected Routes */}
