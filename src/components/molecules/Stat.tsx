@@ -1,11 +1,6 @@
-interface Props {
-  pathD: string
-  title: string
-  count: string
-  desc: string
-}
+import { StatItem } from '@/types'
 
-const Stat = ({ pathD, title, count, desc }: Props): JSX.Element => {
+const Stat = ({ pathD, title, count, desc }: StatItem): JSX.Element => {
   return (
     <div className="tw-stat">
       <div className="tw-stat-figure tw-text-secondary">

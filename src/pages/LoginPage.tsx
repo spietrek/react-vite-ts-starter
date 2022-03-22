@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { useLocationPathName } from '@/hooks/useLocationPathName'
+import LoginError from '@/components/molecules/LoginError'
 
 const LoginPage = (): JSX.Element => {
   const [user, setUser] = useState('')
@@ -125,6 +126,7 @@ const LoginPage = (): JSX.Element => {
               </label>
             </div>
 
+            <LoginError error={error} />
             {error !== '' && (
               <div className="tw-alert tw-alert-error tw-mb-4 tw-shadow-md">
                 <div>
