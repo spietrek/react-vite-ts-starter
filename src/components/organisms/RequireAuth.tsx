@@ -7,7 +7,7 @@ interface RequireAuthProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const RequireAuth = ({ allowedRoles }: RequireAuthProps): any => {
+const RequireAuth = ({ allowedRoles }: RequireAuthProps): JSX.Element => {
   const auth = useAuth()
   const location = useLocation()
   const roles = auth?.roles ?? []
@@ -15,17 +15,15 @@ const RequireAuth = ({ allowedRoles }: RequireAuthProps): any => {
   const validRoles =
     roles.find(role => allowedRoles.includes(role)) !== undefined
 
-  if (isAuthenticated) {
-    return validRoles ? (
-      <Outlet />
-    ) : (
-      <Navigate to="/unauthorized" state={{ from: location }} replace />
-    )
+  if (isAuthenticated && !validRoles) {
+    return <Navigate to="/unauthorized" state={{ from: location }} replace />
   }
 
   if (!isAuthenticated) {
     return <Navigate to="/login" state={{ from: location }} replace />
   }
+
+  return <Outlet />
 }
 
 export default RequireAuth
