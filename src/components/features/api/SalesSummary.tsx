@@ -7,15 +7,21 @@ import {
   totalSalesCountSelector,
 } from '@/store/slices/sales/salesSlice'
 import SpinnerWrapper from '@/components/molecules/SpinnerWrapper'
+import Stat from '@/components/molecules/Stat'
+import { formatNumber } from '@/utilities'
 
 const SalesSummary = (): JSX.Element => {
   const isLoading = useAppSelector((state: RootState) => state.sales.isLoading)
-  const count = useAppSelector((state: RootState) => state.sales.count)
+  const count = formatNumber(
+    useAppSelector((state: RootState) => state.sales.count),
+  )
   const totalAmount = useAppSelector((state: RootState) => {
-    return totalSalesAmountSelector(state)
+    // $490.48 MM
+    return formatNumber(totalSalesAmountSelector(state))
   })
   const totalCount = useAppSelector((state: RootState) => {
-    return totalSalesCountSelector(state)
+    // 75.42 K
+    return formatNumber(totalSalesCountSelector(state))
   })
   const dispatch = useAppDispatch()
 
@@ -24,71 +30,29 @@ const SalesSummary = (): JSX.Element => {
   }, [dispatch])
 
   return (
-    <div className="tw-my-4 tw-bg-slate-200 tw-p-4">
+    <div className="tw-my-4 tw-p-4">
       <SpinnerWrapper isLoading={isLoading}>
         <div className="tw-stats tw-shadow">
-          <div className="tw-stat">
-            <div className="tw-stat-figure tw-text-secondary">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="tw-inline-block tw-h-8 tw-w-8 tw-stroke-current"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <div className="tw-stat-title">Transactions</div>
-            <div className="tw-stat-value">{count}</div>
-            <div className="tw-stat-desc">March 2021 - March 2022</div>
-          </div>
+          <Stat
+            pathD="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            title="Transactions"
+            count={count}
+            desc="March 2021 - March 2022"
+          />
 
-          <div className="tw-stat">
-            <div className="tw-stat-figure tw-text-secondary">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="tw-inline-block tw-h-8 tw-w-8 tw-stroke-current"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                />
-              </svg>
-            </div>
-            <div className="tw-stat-title">Total Cost</div>
-            <div className="tw-stat-value">{totalAmount}</div>
-            <div className="tw-stat-desc">March 2021 - March 2022</div>
-          </div>
+          <Stat
+            pathD="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            title="Total Cost"
+            count={totalAmount}
+            desc="March 2021 - March 2022"
+          />
 
-          <div className="tw-stat">
-            <div className="tw-stat-figure tw-text-secondary">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="tw-inline-block tw-h-8 tw-w-8 tw-stroke-current"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
-                />
-              </svg>
-            </div>
-            <div className="tw-stat-title">Total Quantity</div>
-            <div className="tw-stat-value">{totalCount}</div>
-            <div className="tw-stat-desc">March 2021 - March 2022</div>
-          </div>
+          <Stat
+            pathD="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            title="Total Quantity"
+            count={totalCount}
+            desc="March 2021 - March 2022"
+          />
         </div>
       </SpinnerWrapper>
     </div>

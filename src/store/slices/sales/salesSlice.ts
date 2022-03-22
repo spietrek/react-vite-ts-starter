@@ -19,7 +19,7 @@ interface SalesState {
 }
 
 export const retrieveSales = createAsyncThunk('sales/retrieve', async () => {
-  await timeout(3000)
+  await timeout(1000)
   const res = await SalesDataService.getSales()
   return res.data as SalesItemState[]
 })
