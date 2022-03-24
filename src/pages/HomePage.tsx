@@ -7,7 +7,7 @@ const HomePage = (): JSX.Element => {
         <div className="tw-flex tw-min-h-screen tw-items-center tw-justify-center">
           <div className="tw-w-[900px] tw-rounded-md tw-bg-slate-300 tw-py-16 tw-px-4 tw-text-center tw-shadow-3xl">
             <div>
-              <h1 className="tw-mb-2">Admin/User Roles</h1>
+              <h1 className="tw-mb-2">All Roles</h1>
               <Link className="tw-btn tw-btn-sm tw-mb-4" to="hooks">
                 Hooks Examples
               </Link>
@@ -35,6 +35,9 @@ const HomePage = (): JSX.Element => {
               >
                 Calculator
               </Link>
+              <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="storage">
+                Local Storage
+              </Link>
             </div>
 
             <div className="tw-divider" />
@@ -46,6 +49,9 @@ const HomePage = (): JSX.Element => {
               </Link>
               <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="todos">
                 Store Todos
+              </Link>
+              <Link className="tw-btn tw-btn-sm tw-mb-4 tw-ml-4" to="api">
+                API
               </Link>
             </div>
 

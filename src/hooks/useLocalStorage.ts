@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
+import useDebounce from './useDebounce'
 
 type DefaultValueType = string | number | boolean | null | undefined
 type UseLocalStorageReturnType = [string, (value: DefaultValueType) => void]
 
-export const useLocalStorage = (
+const useLocalStorage = (
   defaultValue: DefaultValueType,
   localStorageKey: string,
 ): UseLocalStorageReturnType => {
@@ -17,14 +18,18 @@ export const useLocalStorage = (
     }
   })
 
+  const debouncedValue = useDebounce(value, 500)
+
   useEffect(() => {
-    if (localStorageKey !== '' && value !== undefined) {
-      localStorage.setItem(localStorageKey, JSON.stringify(value))
+    if (localStorageKey !== '' && debouncedValue !== undefined) {
+      localStorage.setItem(localStorageKey, JSON.stringify(debouncedValue))
     }
-    if (typeof value === 'string' && value.length === 0) {
+    if (typeof debouncedValue === 'string' && debouncedValue.length === 0) {
       localStorage.removeItem(localStorageKey)
     }
-  }, [localStorageKey, value])
+  }, [localStorageKey, debouncedValue])
 
   return [value, setValue]
 }
+
+export default useLocalStorage

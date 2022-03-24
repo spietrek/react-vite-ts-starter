@@ -43,8 +43,12 @@ const AppRoutes = (): JSX.Element => {
             <Route path="api" element={<ApiPage />} />
           </Route>
 
-          {/* Admin/User Protected Routes */}
-          <Route element={<RequireAuth allowedRoles={[UR.Admin, UR.User]} />}>
+          {/* Admin/User/Editor Protected Routes */}
+          <Route
+            element={
+              <RequireAuth allowedRoles={[UR.Admin, UR.User, UR.Editor]} />
+            }
+          >
             <Route path="/" element={<HomePage />} />
             <Route path="hooks" element={<HooksPage />} />
             <Route path="hocs" element={<HocsPage />} />

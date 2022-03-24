@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useLocalStorage } from '@/hooks/useLocalStorage'
+import useLocalStorage from '@/hooks/useLocalStorage'
 
 const LocalStoragePage = (): JSX.Element => {
   const [userName, setUserName] = useLocalStorage('', 'react_app_user_name')
