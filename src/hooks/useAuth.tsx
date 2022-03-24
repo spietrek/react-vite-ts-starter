@@ -55,7 +55,7 @@ export const AuthProvider = ({
         email: 'eve.holt@reqres.in',
         password: 'cityslicka',
       }
-      await timeout(1500)
+      await timeout(500)
       const res = await AuthDataService.login(tempUser)
       setLoading(false)
       if (isValidUser(email) && res.status === 200) {
