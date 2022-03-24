@@ -10,7 +10,7 @@ const simulateProcessing = (iterations: number): string => {
 }
 
 const UseMemo = (): JSX.Element => {
-  const [count, increment] = useCounter(500)
+  const { count, increment } = useCounter(500)
   const [show, setShow] = useToggle(true)
 
   const memoProcess = useMemo(() => simulateProcessing(count), [count])
