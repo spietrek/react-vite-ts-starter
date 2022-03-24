@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export const useToggle = (initialState = false): [boolean, () => void] => {
+const useToggle = (initialState = false): [boolean, () => void] => {
   const [active, setState] = useState(initialState)
 
   const toggle = (): void => {
@@ -9,3 +9,5 @@ export const useToggle = (initialState = false): [boolean, () => void] => {
 
   return [active, toggle]
 }
+
+export default useToggle

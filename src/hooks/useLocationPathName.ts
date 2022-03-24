@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom'
 
-export const useLocationPathName = (initialState = '/'): string => {
+const useLocationPathName = (initialState = '/'): string => {
   const { state } = useLocation() as { state: { from: { pathname: string } } }
   const { from } = (state ?? {}) as { from: { pathname: string } }
   const pathName =
@@ -8,3 +8,5 @@ export const useLocationPathName = (initialState = '/'): string => {
 
   return pathName
 }
+
+export default useLocationPathName

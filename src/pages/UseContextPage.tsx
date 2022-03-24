@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Template } from '@/components/features/useContext'
-import { DateContext, useDateContextValue } from '@/hooks/UseDateContextHook'
+import { DateContext, useDateContextValue } from '@/hooks/useDateContext'
 
 const UseContextPage = (): JSX.Element => {
   const dateContextValue = useDateContextValue()

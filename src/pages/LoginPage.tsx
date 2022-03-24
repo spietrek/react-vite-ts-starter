@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
-import { useLocationPathName } from '@/hooks/useLocationPathName'
+import useLocationPathName from '@/hooks/useLocationPathName'
 import LoginError from '@/components/molecules/LoginError'
 
 const LoginPage = (): JSX.Element => {

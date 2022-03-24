@@ -39,4 +39,4 @@ const useLifecycleEffect = (
   }, deps) // eslint-disable-line react-hooks/exhaustive-deps
 }
 
-export { useLifecycleEffect }
+export default useLifecycleEffect
