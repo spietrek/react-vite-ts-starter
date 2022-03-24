@@ -11,6 +11,7 @@ const CompositionPage = lazy(() => import('@/pages/CompositionPage'))
 const HocsPage = lazy(() => import('@/pages/HocsPage'))
 const HomePage = lazy(() => import('@/pages/HomePage'))
 const HooksPage = lazy(() => import('@/pages/HooksPage'))
+const LocalStoragePage = lazy(() => import('@/pages/LocalStoragePage'))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
 const StoreCounterPage = lazy(() => import('@/pages/StoreCounterPage'))
@@ -28,6 +29,7 @@ const AppRoutes = (): JSX.Element => {
           {/* Public Routes */}
           <Route path="login" element={<LoginPage />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
+          <Route path="storage" element={<LocalStoragePage />} />
 
           {/* Admin Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin]} />}>
