@@ -29,7 +29,6 @@ const AppRoutes = (): JSX.Element => {
           {/* Public Routes */}
           <Route path="login" element={<LoginPage />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
-          <Route path="storage" element={<LocalStoragePage />} />
 
           {/* Admin Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin]} />}>
@@ -56,6 +55,7 @@ const AppRoutes = (): JSX.Element => {
             <Route path="composition" element={<CompositionPage />} />
             <Route path="tuples" element={<TuplesPage />} />
             <Route path="calculator" element={<CalculatorPage />} />
+            <Route path="storage" element={<LocalStoragePage />} />
           </Route>
 
           {/* Catch all route */}
