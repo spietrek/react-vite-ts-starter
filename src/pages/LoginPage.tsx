@@ -40,10 +40,10 @@ const LoginPage = (): JSX.Element => {
       <div className="tw-max tw-flex tw-flex-col tw-overflow-hidden tw-rounded-md tw-bg-white tw-shadow-lg md:tw-flex-1 md:tw-flex-row lg:tw-max-w-screen-md">
         <div className="tw-bg-blue-500 tw-p-4 tw-py-6 tw-text-white md:tw-flex md:tw-w-80 md:tw-flex-shrink-0 md:tw-flex-col md:tw-items-center md:tw-justify-evenly">
           <div className="tw-my-3 tw-text-center tw-text-4xl tw-font-bold tw-tracking-wider">
-            <a href="#">HAPPY DAYS</a>
+            <a href="#">REACT KNOWLEDGE</a>
           </div>
           <p className="tw-mt-6 tw-text-center tw-font-normal tw-text-gray-300 md:tw-mt-0">
-            With the power of Happy Days, you can now focus only on
+            With the power of React Knowledge, you can now focus only on
             functionaries for your digital products, while leaving the UI design
             on us!
           </p>
