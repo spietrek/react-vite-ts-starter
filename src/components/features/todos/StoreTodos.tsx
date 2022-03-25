@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import type { RootState } from '@/store'
-import { useAppSelector, useAppDispatch } from '@/hooks/UseReduxHooks'
+import { useAppSelector, useAppDispatch } from '@/hooks/useReduxHooks'
 import {
   clear,
   retrieveTodos,
