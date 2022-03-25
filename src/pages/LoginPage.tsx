@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import useLocationPathName from '@/hooks/useLocationPathName'
 import LoginError from '@/components/molecules/LoginError'
+import PasswordInput from '@/components/molecules/PasswordInput'
 
 const LoginPage = (): JSX.Element => {
   const [user, setUser] = useState('')
@@ -105,11 +106,9 @@ const LoginPage = (): JSX.Element => {
                   Forgot Password?
                 </a>
               </div>
-              <input
-                type="password"
-                name="password"
-                onChange={e => setPassword(e.target.value)}
-                className="rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200 tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-transition tw-duration-300"
+              <PasswordInput
+                password={password}
+                onChange={value => setPassword(value)}
               />
             </div>
             <div className="tw-flex tw-items-center tw-space-x-2">
