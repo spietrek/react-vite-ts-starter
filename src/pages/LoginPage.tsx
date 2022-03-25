@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import useLocationPathName from '@/hooks/useLocationPathName'
 import LoginError from '@/components/molecules/LoginError'
@@ -50,9 +50,9 @@ const LoginPage = (): JSX.Element => {
           </p>
           <p className="tw-mt-10 tw-flex tw-flex-col tw-items-center tw-justify-center tw-text-center">
             <span>Don&apos;t have an account?</span>
-            <a href="#" className="tw-underline">
+            <Link to="/register" className="tw-underline">
               Get Started!
-            </a>
+            </Link>
           </p>
           <p className="tw-mt-6 tw-text-center tw-text-sm tw-text-gray-300">
             Read our{' '}
