@@ -9,7 +9,9 @@ const StoreTodosPage = (): JSX.Element => {
           <Link className="tw-btn tw-btn-sm tw-mb-4" to="/">
             Home
           </Link>
+
           <h1>To Dos</h1>
+
           <StoreTodos />
         </div>
       </div>
