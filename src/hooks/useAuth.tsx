@@ -50,22 +50,26 @@ export const AuthProvider = ({
   ): Promise<LoginResponseType | undefined> => {
     let tempErrorMsg = ''
     setLoading(true)
+
     try {
       const tempUser = {
         email: 'eve.holt@reqres.in',
         password: 'cityslicka',
       }
+
       await timeout(500)
       const res = await AuthDataService.login(tempUser)
-      setLoading(false)
+
       if (isValidUser(email) && res.status === 200) {
         setEmail(email)
         setAuthenticated(true)
         setRoles(getUserRoles(email))
         tempErrorMsg = ''
+
         return { success: true, error: null }
       } else {
         tempErrorMsg = 'Invalid User'
+
         return { success: false, error: tempErrorMsg }
       }
     } catch (err) {
@@ -82,6 +86,7 @@ export const AuthProvider = ({
       } else {
         tempErrorMsg = 'Unknown Error'
       }
+
       return { success: false, error: tempErrorMsg }
     } finally {
       setErrorMsg(tempErrorMsg)
