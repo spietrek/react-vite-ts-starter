@@ -26,6 +26,7 @@ const LayoutPage = (): JSX.Element => {
           )}
         </div>
       </div>
+
       <Outlet />
     </main>
   )
