@@ -88,7 +88,7 @@ const LoginPage = (): JSX.Element => {
                 name="email"
                 autoFocus
                 onChange={e => setUser(e.target.value)}
-                className="tw-rounded tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-transition tw-duration-300 focus:tw-border-transparent focus:tw-outline-none focus:tw-ring-4 focus:tw-ring-blue-200"
+                className="tw-form-input tw-rounded tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-transition tw-duration-300 focus:tw-border-transparent focus:tw-outline-none focus:tw-ring-4 focus:tw-ring-blue-200"
               />
             </div>
             <div className="tw-flex tw-flex-col tw-space-y-1">
