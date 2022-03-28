@@ -8,6 +8,16 @@ interface UserProps {
 }
 
 class AuthDataService {
+  async register({
+    email,
+    password,
+  }: UserProps): Promise<AxiosResponse<any, any>> {
+    return await http.post('https://reqres.in/api/register', {
+      email,
+      password,
+    })
+  }
+
   async login({
     email,
     password,

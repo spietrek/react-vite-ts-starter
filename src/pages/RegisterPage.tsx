@@ -2,32 +2,34 @@ import clsx from 'clsx'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
-import useLocationPathName from '@/hooks/useLocationPathName'
 import LoginError from '@/components/molecules/LoginError'
 import PasswordInput from '@/components/molecules/PasswordInput'
 import PasswordStrength from '@/components/molecules/PasswordStrength'
 import useZxcvbn from '@/hooks/useZxcvbn'
 
 const LoginPage = (): JSX.Element => {
-  const [user, setUser] = useState('')
+  const [userName, setUserName] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
   const [score, update] = useZxcvbn()
 
   const navigate = useNavigate()
   const auth = useAuth()
-  const pathName = useLocationPathName('/')
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
 
     const formData = new FormData(event.currentTarget)
+    const userName = formData.get('userName') as string
     const email = formData.get('email') as string
     const password = formData.get('password') as string
+    const confirmPassword = formData.get('confirmPassword') as string
 
-    void auth.login(email, password).then(res => {
+    void auth.register(userName, email, password, confirmPassword).then(res => {
       if (res?.success ?? false) {
-        navigate(pathName, { replace: true })
+        navigate('/login', { replace: true })
       } else {
         setError(res?.error ?? 'Unknown Error')
       }
@@ -41,7 +43,7 @@ const LoginPage = (): JSX.Element => {
 
   useEffect(() => {
     setError('')
-  }, [user, password])
+  }, [userName, email, password, confirmPassword])
 
   return (
     <div className="tw-flex tw-min-h-screen tw-items-center tw-bg-gray-100 tw-p-4 lg:tw-justify-center">
@@ -78,6 +80,21 @@ const LoginPage = (): JSX.Element => {
           >
             <div className="tw-flex tw-flex-col tw-space-y-1">
               <label
+                htmlFor="userName"
+                className="tw-text-sm tw-font-semibold tw-text-gray-500"
+              >
+                User Name
+              </label>
+              <input
+                type="text"
+                name="userName"
+                autoFocus
+                onChange={e => setUserName(e.target.value)}
+                className="tw-form-input tw-rounded tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-transition tw-duration-300 focus:tw-border-transparent focus:tw-outline-none focus:tw-ring-4 focus:tw-ring-blue-200"
+              />
+            </div>
+            <div className="tw-flex tw-flex-col tw-space-y-1">
+              <label
                 htmlFor="email"
                 className="tw-text-sm tw-font-semibold tw-text-gray-500"
               >
@@ -86,8 +103,7 @@ const LoginPage = (): JSX.Element => {
               <input
                 type="email"
                 name="email"
-                autoFocus
-                onChange={e => setUser(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
                 className="tw-form-input tw-rounded tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-transition tw-duration-300 focus:tw-border-transparent focus:tw-outline-none focus:tw-ring-4 focus:tw-ring-blue-200"
               />
             </div>
@@ -106,6 +122,22 @@ const LoginPage = (): JSX.Element => {
               />
 
               <PasswordStrength score={score} />
+            </div>
+
+            <div className="tw-flex tw-flex-col tw-space-y-1">
+              <div className="tw-flex tw-items-center tw-justify-between">
+                <label
+                  htmlFor="confirmPassword"
+                  className="tw-text-sm tw-font-semibold tw-text-gray-500"
+                >
+                  Confirm Password
+                </label>
+              </div>
+              <PasswordInput
+                formName="confirmPassword"
+                password={confirmPassword}
+                onChange={value => setConfirmPassword(value)}
+              />
             </div>
 
             <LoginError error={error} />

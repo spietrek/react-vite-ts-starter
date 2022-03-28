@@ -2,11 +2,16 @@ import { useState } from 'react'
 import clsx from 'clsx'
 
 interface Props {
+  formName?: string
   password: string
   onChange: (value: string) => void
 }
 
-const PasswordInput = ({ password, onChange }: Props): JSX.Element => {
+const PasswordInput = ({
+  formName = 'password',
+  password,
+  onChange,
+}: Props): JSX.Element => {
   const [visible, setVisible] = useState<boolean>(false)
 
   const handlePasswordChange = (
@@ -26,7 +31,7 @@ const PasswordInput = ({ password, onChange }: Props): JSX.Element => {
     <div className="tw-relative tw-mb-2">
       <input
         type={visible ? 'text' : 'password'}
-        name="password"
+        name={formName}
         value={password}
         onChange={handlePasswordChange}
         className="tw-w-full tw-rounded tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-transition tw-duration-300 focus:tw-border-transparent focus:tw-outline-none focus:tw-ring-4 focus:tw-ring-blue-200"
