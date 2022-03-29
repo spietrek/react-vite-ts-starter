@@ -4,3 +4,10 @@ export interface StatItem {
   count: string
   desc: string
 }
+
+export interface ToastItem {
+  id: number
+  title: string
+  description: string
+  backgroundColor: string
+}

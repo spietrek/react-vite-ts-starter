@@ -6,6 +6,7 @@ import LayoutPage from '@/pages/LayoutPage'
 import LoginPage from '@/pages/LoginPage'
 import RequireAuth from '@/components/organisms/RequireAuth'
 
+const ApiPage = lazy(() => import('@/pages/ApiPage'))
 const CalculatorPage = lazy(() => import('@/pages/CalculatorPage'))
 const CompositionPage = lazy(() => import('@/pages/CompositionPage'))
 const HocsPage = lazy(() => import('@/pages/HocsPage'))
@@ -17,7 +18,7 @@ const RegisterPage = lazy(() => import('@/pages/RegisterPage'))
 const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
 const StoreCounterPage = lazy(() => import('@/pages/StoreCounterPage'))
 const StoreTodosPage = lazy(() => import('@/pages/StoreTodosPage'))
-const ApiPage = lazy(() => import('@/pages/ApiPage'))
+const ToastPage = lazy(() => import('@/pages/ToastPage'))
 const TuplesPage = lazy(() => import('@/pages/TuplesPage'))
 const UnauthorizedPage = lazy(() => import('@/pages/UnauthorizedPage'))
 const UseContextPage = lazy(() => import('@/pages/UseContextPage'))
@@ -31,6 +32,7 @@ const AppRoutes = (): JSX.Element => {
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
+          <Route path="toast" element={<ToastPage />} />
 
           {/* Admin Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin]} />}>
