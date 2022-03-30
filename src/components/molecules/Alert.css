@@ -1,0 +1,36 @@
+.alert-container-main {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 8px;
+  text-align: left;
+  font-weight: 500;
+  letter-spacing: -0.05px;
+  line-height: 1.2;
+}
+
+.alert-info {
+  background-color: #f3f6ff;
+  border: 1px solid #3366ff;
+  color: #2952cc;
+}
+
+.alert-success {
+  background-color: #f5fbf8;
+  border: 1px solid #52bd95;
+  color: #317159;
+}
+
+.alert-warning {
+  background-color: #fffaf2;
+  border: 1px solid #ffb020;
+  color: #996a13;
+}
+
+.alert-error {
+  background-color: #fdf4f4;
+  border: 1px solid #d14343;
+  color: #a73636;
+}

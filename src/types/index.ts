@@ -5,9 +5,9 @@ export interface StatItem {
   desc: string
 }
 
-export interface ToastItem {
-  id: number
-  title: string
-  description: string
-  backgroundColor: string
+export enum Severities {
+  Info = 'info',
+  Success = 'success',
+  Warning = 'warning',
+  Error = 'error',
 }

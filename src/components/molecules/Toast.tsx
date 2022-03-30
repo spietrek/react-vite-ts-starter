@@ -1,54 +1,38 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-import { useCallback, useEffect } from 'react'
-import styles from './Toast.module.css'
-import { ToastItem } from '@/types'
+import { useEffect } from 'react'
+import './Toast.css'
 
-interface ToastProps {
-  list: ToastItem[]
-  position: string
-  setList: (list: ToastItem[]) => void
+export interface ToastProps {
+  id: string
+  destroy: () => void
+  title: string
+  content?: string
+  duration?: number
 }
 
-const Toast = ({ list, position, setList }: ToastProps): JSX.Element => {
-  const deleteToast = useCallback(
-    (id: number) => {
-      const toastListItem = list.filter(e => e.id !== id)
-      setList(toastListItem)
-    },
-    [list, setList],
-  )
+const Toast = (props: ToastProps): JSX.Element => {
+  const { destroy, content = null, title, duration = 3000, id } = props
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (list?.length > 0) {
-        const [first] = list
-        if (first != null) {
-          const { id } = first
-          deleteToast(id)
-        }
-      }
-    }, 3000)
+    if (duration === 0) return
 
-    return () => {
-      clearInterval(interval)
-    }
-  }, [list, deleteToast])
+    const timer = setTimeout(() => {
+      destroy()
+    }, duration)
+
+    return () => clearTimeout(timer)
+  }, [destroy, duration])
 
   return (
-    <div className={`${styles.container} ${styles[position]}`}>
-      {list.map((toast, i) => (
-        <div
-          key={i}
-          className={`${styles.notification} ${styles.toast} ${styles[position]}`}
-          style={{ backgroundColor: toast.backgroundColor }}
-        >
-          <button onClick={() => deleteToast(toast.id)}>X</button>
-          <div>
-            <p className={styles.title}>{toast.title}</p>
-            <p className={styles.description}>{toast.description}</p>
-          </div>
-        </div>
-      ))}
+    <div className="toast-success">
+      <div className="toast-header">
+        <h4 className="toast-title">
+          {title} {id}
+        </h4>
+        <button className="toast-button" onClick={destroy}>
+          X
+        </button>
+      </div>
+      {content != null && <p className="toast-content">{content}</p>}
     </div>
   )
 }
