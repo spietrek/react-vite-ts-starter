@@ -12,10 +12,10 @@ const AlertIcon = ({ severity }: AlertIconProps): JSX.Element => {
   return (
     <>
       <div className="tw-mr-4">
-        {severity === Severities.Info && <InfoIcon />}
-        {severity === Severities.Success && <SuccessIcon />}
-        {severity === Severities.Error && <ErrorIcon />}
-        {severity === Severities.Warning && <WarningIcon />}
+        {severity === 'info' && <InfoIcon />}
+        {severity === 'success' && <SuccessIcon />}
+        {severity === 'error' && <ErrorIcon />}
+        {severity === 'warning' && <WarningIcon />}
       </div>
     </>
   )

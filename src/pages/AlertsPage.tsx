@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { toast } from '@/components/molecules/ToastManager'
 import Alert from '@/components/molecules/Alert'
-import { Severities } from '@/types'
 
 const ToastPage = (): JSX.Element => {
   const handleToast = (): void => {
@@ -24,19 +23,34 @@ const ToastPage = (): JSX.Element => {
 
           <h1 className="tw-mb-4">Alerts</h1>
 
-          <Alert severity={Severities.Info}>
+          <Alert severity="info" variant="outlined">
             We hold these truths to be self-evident, that all men are created
             equal, that they are endowed by their Creator with certain
             unalienable Rights, that among these are Life, Liberty and the
             pursuit of Happiness.
           </Alert>
-          <Alert severity={Severities.Success}>
+          <Alert severity="info" variant="filled">
+            We hold these truths to be self-evident, that all men are created
+            equal, that they are endowed by their Creator with certain
+            unalienable Rights, that among these are Life, Liberty and the
+            pursuit of Happiness.
+          </Alert>
+          <Alert severity="success" variant="outlined">
             User has been created successfully.
           </Alert>
-          <Alert severity={Severities.Warning}>
+          <Alert severity="success" variant="filled">
+            User has been created successfully.
+          </Alert>
+          <Alert severity="warning" variant="outlined">
             Database &apos;USERS&apos; is currently unavailable.
           </Alert>
-          <Alert severity={Severities.Error}>
+          <Alert severity="warning" variant="filled">
+            Database &apos;USERS&apos; is currently unavailable.
+          </Alert>
+          <Alert severity="error" variant="outlined">
+            User was not able to be saved. Duplicate user.
+          </Alert>
+          <Alert severity="error" variant="filled">
             User was not able to be saved. Duplicate user.
           </Alert>
 

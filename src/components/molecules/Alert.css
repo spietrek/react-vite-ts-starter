@@ -11,26 +11,46 @@
   line-height: 1.2;
 }
 
-.alert-info {
+.alert-info-outlined {
   background-color: #f3f6ff;
   border: 1px solid #3366ff;
   color: #2952cc;
 }
 
-.alert-success {
+.alert-info-filled {
+  background-color: #3366ff;
+  color: #ffffff;
+}
+
+.alert-success-outlined {
   background-color: #f5fbf8;
   border: 1px solid #52bd95;
   color: #317159;
 }
 
-.alert-warning {
+.alert-success-filled {
+  background-color: #52bd95;
+  color: #fff;
+}
+
+.alert-warning-outlined {
   background-color: #fffaf2;
   border: 1px solid #ffb020;
   color: #996a13;
 }
 
-.alert-error {
+.alert-warning-filled {
+  background-color: #ffb020;
+  color: #fff;
+}
+
+.alert-error-outlined {
   background-color: #fdf4f4;
   border: 1px solid #d14343;
   color: #a73636;
+}
+
+.alert-error-filled {
+  background-color: #d14343;
+  color: #fff;
 }
