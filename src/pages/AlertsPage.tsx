@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from '@/components/molecules/ToastManager'
 import Alert from '@/components/molecules/Alert'
 
 const ToastPage = (): JSX.Element => {
+  const [visible, setVisible] = useState(true)
+
   const handleToast = (): void => {
     toast.show({
       title:
@@ -11,6 +14,10 @@ const ToastPage = (): JSX.Element => {
         'I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.',
       duration: 3000000,
     })
+  }
+
+  const handleVisibleClick = (): void => {
+    setVisible(!visible)
   }
 
   return (
@@ -53,6 +60,38 @@ const ToastPage = (): JSX.Element => {
           <Alert severity="error" variant="filled">
             User was not able to be saved. Duplicate user.
           </Alert>
+
+          <h1 className="tw-my-4">Alerts with Actions</h1>
+
+          {!visible && (
+            <button
+              className="tw-btn tw-btn-info tw-btn-sm"
+              onClick={handleVisibleClick}
+            >
+              Show Alert
+            </button>
+          )}
+          {visible && (
+            <>
+              <Alert
+                severity="info"
+                variant="outlined"
+                onClose={handleVisibleClick}
+              >
+                Click X to close me.
+              </Alert>
+              <Alert
+                severity="info"
+                variant="outlined"
+                onClose={handleVisibleClick}
+              >
+                We hold these truths to be self-evident, that all men are
+                created equal, that they are endowed by their Creator with
+                certain unalienable Rights, that among these are Life, Liberty
+                and the pursuit of Happiness.
+              </Alert>
+            </>
+          )}
 
           <h1 className="tw-my-4">Toasts</h1>
 
