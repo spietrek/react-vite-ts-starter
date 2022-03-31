@@ -17,17 +17,24 @@ const Alert = ({
   onClose,
   action,
 }: AlertProps): JSX.Element => {
-  const getVariantClass = (): string => {
-    return variant !== 'default' ? `alert-${severity}-${variant}` : ''
+  const getContainerClass = (): string => {
+    return variant !== 'default' ? `alert-container-${severity}-${variant}` : ''
+  }
+
+  const getButtonClass = (): string => {
+    return variant !== 'default' ? `alert-button-${severity}` : ''
   }
 
   return (
     <>
-      <div className={`alert-container-main ${getVariantClass()}`}>
+      <div className={`alert-container-main ${getContainerClass()}`}>
         <AlertIcon severity={severity} />
         <div className="alert-body">{children}</div>
         {onClose !== undefined && (
-          <button className="alert-button" onClick={onClose}>
+          <button
+            className={`alert-button ${getButtonClass()}`}
+            onClick={onClose}
+          >
             X
           </button>
         )}

@@ -82,7 +82,7 @@ const ToastPage = (): JSX.Element => {
                 Click X to close me.
               </Alert>
               <Alert
-                severity="info"
+                severity="error"
                 variant="outlined"
                 onClose={handleVisibleClick}
               >

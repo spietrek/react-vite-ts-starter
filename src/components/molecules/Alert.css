@@ -19,46 +19,46 @@
   line-height: 1.2;
 }
 
-.alert-info-outlined {
+.alert-container-info-outlined {
   background-color: #f3f6ff;
   border: 1px solid #3366ff;
   color: #2952cc;
 }
 
-.alert-info-filled {
+.alert-container-info-filled {
   background-color: #3366ff;
   color: #fff;
 }
 
-.alert-success-outlined {
+.alert-container-success-outlined {
   background-color: #f5fbf8;
   border: 1px solid #52bd95;
   color: #317159;
 }
 
-.alert-success-filled {
+.alert-container-success-filled {
   background-color: #52bd95;
   color: #fff;
 }
 
-.alert-warning-outlined {
+.alert-container-warning-outlined {
   background-color: #fff2e6;
   border: 1px solid #f57b00;
   color: #b35900;
 }
 
-.alert-warning-filled {
+.alert-container-warning-filled {
   background-color: #f57b00;
   color: #fff;
 }
 
-.alert-error-outlined {
+.alert-container-error-outlined {
   background-color: #fdf4f4;
   border: 1px solid #d14343;
   color: #a73636;
 }
 
-.alert-error-filled {
+.alert-container-error-filled {
   background-color: #d14343;
   color: #fff;
 }
@@ -66,7 +66,6 @@
 .alert-button {
   justify-content: flex-end;
   background-color: transparent;
-  color: #52bd95;
   outline: none;
   cursor: pointer;
   border-radius: 4px;
@@ -77,6 +76,22 @@
   font-size: 11px;
   transition: box-shadow 80ms ease-in-out;
   letter-spacing: 0;
+}
+
+.alert-button-info {
+  color: #3366ff;
+}
+
+.alert-button-success {
+  color: #52bd95;
+}
+
+.alert-button-warning {
+  color: #f57b00;
+}
+
+.alert-button-error {
+  color: #d14343;
 }
 
 .alert-action {
