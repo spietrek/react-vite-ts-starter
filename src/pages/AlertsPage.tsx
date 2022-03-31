@@ -71,6 +71,7 @@ const ToastPage = (): JSX.Element => {
               Show Alert
             </button>
           )}
+
           {visible && (
             <>
               <Alert
@@ -95,7 +96,7 @@ const ToastPage = (): JSX.Element => {
                 variant="outlined"
                 action={
                   <button
-                    className="tw-btn tw-btn-info tw-btn-xs"
+                    className="tw-btn tw-btn-xs"
                     onClick={handleVisibleClick}
                   >
                     UNDO

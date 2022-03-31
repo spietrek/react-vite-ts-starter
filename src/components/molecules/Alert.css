@@ -79,6 +79,10 @@
   letter-spacing: 0;
 }
 
+.alert-action {
+  margin-left: 8px;
+}
+
 @keyframes fade-in-opacity {
   0% {
     opacity: 0;
