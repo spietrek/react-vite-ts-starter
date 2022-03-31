@@ -7,6 +7,7 @@ interface AlertProps {
   variant?: Variants
   children: string
   onClose?: () => void
+  action?: React.ReactNode
 }
 
 const Alert = ({
@@ -14,6 +15,7 @@ const Alert = ({
   variant = 'default',
   children,
   onClose,
+  action,
 }: AlertProps): JSX.Element => {
   const getVariantClass = (): string => {
     return variant !== 'default' ? `alert-${severity}-${variant}` : ''
@@ -29,6 +31,8 @@ const Alert = ({
             X
           </button>
         )}
+
+        {action !== undefined && <div className="alert-action">{action}</div>}
       </div>
     </>
   )
