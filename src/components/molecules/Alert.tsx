@@ -5,9 +5,10 @@ import './Alert.css'
 interface AlertProps {
   severity?: Severities
   variant?: Variants
-  children: string
+  children: React.ReactNode
   onClose?: () => void
   action?: React.ReactNode
+  noMargin?: boolean
 }
 
 const Alert = ({
@@ -16,7 +17,12 @@ const Alert = ({
   children,
   onClose,
   action,
+  noMargin = false,
 }: AlertProps): JSX.Element => {
+  const getMarginClass = (): string => {
+    if (noMargin) return ''
+    return 'alert-container-main-margin'
+  }
   const getContainerClass = (): string => {
     return variant !== 'default' ? `alert-container-${severity}-${variant}` : ''
   }
@@ -27,7 +33,9 @@ const Alert = ({
 
   return (
     <>
-      <div className={`alert-container-main ${getContainerClass()}`}>
+      <div
+        className={`alert-container-main ${getContainerClass()} ${getMarginClass()}`}
+      >
         <AlertIcon severity={severity} />
         <div className="alert-body">{children}</div>
         {onClose !== undefined && (

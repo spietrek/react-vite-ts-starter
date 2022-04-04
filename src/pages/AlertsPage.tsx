@@ -10,9 +10,7 @@ const ToastPage = (): JSX.Element => {
     toast.show({
       title:
         'We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.',
-      content:
-        'I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.',
-      duration: 3000000,
+      duration: 3000,
     })
   }
 

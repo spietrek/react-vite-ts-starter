@@ -1,6 +1,5 @@
 .alert-container-main {
   width: 100%;
-  margin-bottom: 10px;
   display: flex;
   border-radius: 4px;
   padding: 8px;
@@ -8,6 +7,10 @@
   opacity: 1;
   animation: fade-in-opacity 0.2s;
   transition: all 0.3s ease-in-out;
+}
+
+.alert-container-main-margin {
+  margin-bottom: 10px;
 }
 
 .alert-body {

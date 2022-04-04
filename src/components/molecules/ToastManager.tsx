@@ -4,7 +4,6 @@ import Toast, { ToastProps } from './Toast'
 interface ToastOptions {
   id?: string
   title: string
-  content?: string | undefined
   duration?: number
 }
 
