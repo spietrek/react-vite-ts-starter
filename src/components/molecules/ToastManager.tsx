@@ -1,8 +1,10 @@
 import ReactDOM from 'react-dom'
 import Toast, { ToastProps } from './Toast'
+import { Severities } from '@/types'
 
 interface ToastOptions {
   id?: string
+  severity: Severities
   title: string
   duration?: number
 }

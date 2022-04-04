@@ -1,16 +1,18 @@
 import { useEffect } from 'react'
 import Alert from './Alert'
+import { Severities } from '@/types'
 import './Toast.css'
 
 export interface ToastProps {
   id: string
-  destroy: () => void
+  severity?: Severities
   title: string
   duration?: number
+  destroy: () => void
 }
 
 const Toast = (props: ToastProps): JSX.Element => {
-  const { destroy, title, duration = 3000, id } = props
+  const { destroy, title, duration = 3000, id, severity = 'info' } = props
 
   useEffect(() => {
     if (duration === 0) return
@@ -24,7 +26,7 @@ const Toast = (props: ToastProps): JSX.Element => {
 
   return (
     <div className="toast-success">
-      <Alert severity="error" variant="outlined" noMargin onClose={destroy}>
+      <Alert severity={severity} variant="outlined" noMargin onClose={destroy}>
         {title} {id}
       </Alert>
     </div>

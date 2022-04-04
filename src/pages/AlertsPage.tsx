@@ -6,10 +6,35 @@ import Alert from '@/components/molecules/Alert'
 const ToastPage = (): JSX.Element => {
   const [visible, setVisible] = useState(true)
 
-  const handleToast = (): void => {
+  const handleInfoToast = (): void => {
     toast.show({
+      severity: 'info',
       title:
         'We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.',
+      duration: 3000,
+    })
+  }
+
+  const handleSuccessToast = (): void => {
+    toast.show({
+      severity: 'success',
+      title: 'User has been created successfully.',
+      duration: 3000,
+    })
+  }
+
+  const handleWarningToast = (): void => {
+    toast.show({
+      severity: 'warning',
+      title: 'Database &apos;USERS&apos; is currently unavailable.',
+      duration: 3000,
+    })
+  }
+
+  const handleErrorToast = (): void => {
+    toast.show({
+      severity: 'error',
+      title: 'User was not able to be saved. Duplicate user.',
       duration: 3000,
     })
   }
@@ -113,25 +138,25 @@ const ToastPage = (): JSX.Element => {
 
           <button
             className="tw-btn tw-btn-info tw-btn-sm"
-            onClick={handleToast}
+            onClick={handleInfoToast}
           >
             Info
           </button>
           <button
             className="tw-btn tw-btn-success tw-btn-sm tw-ml-2"
-            onClick={handleToast}
+            onClick={handleSuccessToast}
           >
             Success
           </button>
           <button
             className="tw-btn tw-btn-warning tw-btn-sm tw-ml-2"
-            onClick={handleToast}
+            onClick={handleWarningToast}
           >
             Warning
           </button>
           <button
             className="tw-btn tw-btn-error tw-btn-sm tw-ml-2"
-            onClick={handleToast}
+            onClick={handleErrorToast}
           >
             Error
           </button>
