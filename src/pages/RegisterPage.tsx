@@ -1,6 +1,6 @@
-import clsx from 'clsx'
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
+import clsx from 'clsx'
 import { useAuth } from '@/hooks/useAuth'
 import LoginError from '@/components/molecules/LoginError'
 import PasswordInput from '@/components/molecules/PasswordInput'
@@ -27,13 +27,15 @@ const LoginPage = (): JSX.Element => {
     const password = formData.get('password') as string
     const confirmPassword = formData.get('confirmPassword') as string
 
-    void auth.register(userName, email, password, confirmPassword).then(res => {
-      if (res?.success ?? false) {
-        navigate('/login', { replace: true })
-      } else {
-        setError(res?.error ?? 'Unknown Error')
-      }
-    })
+    void auth
+      .register(userName, email, password ?? '', confirmPassword)
+      .then(res => {
+        if (res?.success ?? false) {
+          navigate('/login', { replace: true })
+        } else {
+          setError(res?.error ?? 'Unknown Error')
+        }
+      })
   }
 
   const updatePassword = (password: string): void => {
@@ -50,7 +52,7 @@ const LoginPage = (): JSX.Element => {
       <div className="tw-max tw-flex tw-flex-col tw-overflow-hidden tw-rounded-md tw-bg-white tw-shadow-lg md:tw-flex-1 md:tw-flex-row lg:tw-max-w-screen-md">
         <div className="tw-bg-blue-500 tw-p-4 tw-py-6 tw-text-white md:tw-flex md:tw-w-80 md:tw-flex-shrink-0 md:tw-flex-col md:tw-items-center md:tw-justify-evenly">
           <div className="tw-my-3 tw-text-center tw-text-4xl tw-font-bold tw-tracking-wider">
-            <a href="#">REACT KNOWLEDGE</a>
+            <Link to="/">REACT KNOWLEDGE</Link>
           </div>
           <p className="tw-mt-6 tw-text-center tw-font-normal tw-text-gray-300 md:tw-mt-0">
             With the power of React Knowledge, you can now focus only on
@@ -59,13 +61,13 @@ const LoginPage = (): JSX.Element => {
           </p>
           <p className="tw-mt-6 tw-text-center tw-text-sm tw-text-gray-300">
             Read our{' '}
-            <a href="#" className="tw-underline">
+            <Link className="tw-underline" to="/">
               terms
-            </a>{' '}
+            </Link>{' '}
             and{' '}
-            <a href="#" className="tw-underline">
+            <Link className="tw-underline" to="/">
               conditions
-            </a>
+            </Link>
           </p>
         </div>
 

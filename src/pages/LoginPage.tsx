@@ -41,7 +41,7 @@ const LoginPage = (): JSX.Element => {
       <div className="tw-max tw-flex tw-flex-col tw-overflow-hidden tw-rounded-md tw-bg-white tw-shadow-lg md:tw-flex-1 md:tw-flex-row lg:tw-max-w-screen-md">
         <div className="tw-bg-blue-500 tw-p-4 tw-py-6 tw-text-white md:tw-flex md:tw-w-80 md:tw-flex-shrink-0 md:tw-flex-col md:tw-items-center md:tw-justify-evenly">
           <div className="tw-my-3 tw-text-center tw-text-4xl tw-font-bold tw-tracking-wider">
-            <a href="#">REACT KNOWLEDGE</a>
+            <Link to="/">REACT KNOWLEDGE</Link>
           </div>
           <p className="tw-mt-6 tw-text-center tw-font-normal tw-text-gray-300 md:tw-mt-0">
             With the power of React Knowledge, you can now focus only on
@@ -56,13 +56,13 @@ const LoginPage = (): JSX.Element => {
           </p>
           <p className="tw-mt-6 tw-text-center tw-text-sm tw-text-gray-300">
             Read our{' '}
-            <a href="#" className="tw-underline">
+            <Link className="tw-underline" to="/">
               terms
-            </a>{' '}
+            </Link>{' '}
             and{' '}
-            <a href="#" className="tw-underline">
+            <Link className="tw-underline" to="/">
               conditions
-            </a>
+            </Link>
           </p>
         </div>
 
@@ -98,13 +98,13 @@ const LoginPage = (): JSX.Element => {
                 >
                   Password
                 </label>
-                <a
-                  href="#"
+                <Link
                   tabIndex={ignoreTabIndex}
                   className="tw-text-sm tw-text-blue-600 hover:tw-underline focus:tw-text-blue-800"
+                  to="/"
                 >
                   Forgot Password?
-                </a>
+                </Link>
               </div>
               <PasswordInput
                 password={password}
@@ -157,8 +157,8 @@ const LoginPage = (): JSX.Element => {
                 <span className="tw-h-px tw-w-14 tw-bg-gray-400" />
               </span>
               <div className="tw-flex tw-flex-col tw-space-y-4">
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="tw-group tw-flex tw-items-center tw-justify-center tw-space-x-2 tw-rounded-md tw-border tw-border-gray-800 tw-px-4 tw-py-2 tw-transition-colors tw-duration-300 hover:tw-bg-gray-800 focus:tw-outline-none"
                 >
                   <span>
@@ -177,9 +177,9 @@ const LoginPage = (): JSX.Element => {
                   <span className="tw-text-sm tw-font-medium tw-text-gray-800 group-hover:tw-text-white">
                     Github
                   </span>
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  to="/"
                   className="tw-group tw-flex tw-items-center tw-justify-center tw-space-x-2 tw-rounded-md tw-border tw-border-blue-500 tw-px-4 tw-py-2 tw-transition-colors tw-duration-300 hover:tw-bg-blue-500 focus:tw-outline-none"
                 >
                   <span>
@@ -195,7 +195,7 @@ const LoginPage = (): JSX.Element => {
                   <span className="tw-text-sm tw-font-medium tw-text-blue-500 group-hover:tw-text-white">
                     Twitter
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </form>
