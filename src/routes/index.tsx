@@ -33,6 +33,8 @@ const AppRoutes = (): JSX.Element => {
           <Route path="register" element={<RegisterPage />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
           <Route path="alerts" element={<AlertsPage />} />
+          <Route path="hocs" element={<HocsPage />} />
+          <Route path="todos" element={<StoreTodosPage />} />
 
           {/* Admin Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin]} />}>
@@ -42,7 +44,7 @@ const AppRoutes = (): JSX.Element => {
           {/* Admin/Editor Protected Routes */}
           <Route element={<RequireAuth allowedRoles={[UR.Admin, UR.Editor]} />}>
             <Route path="counter" element={<StoreCounterPage />} />
-            <Route path="todos" element={<StoreTodosPage />} />
+
             <Route path="api" element={<ApiPage />} />
           </Route>
 
@@ -54,7 +56,7 @@ const AppRoutes = (): JSX.Element => {
           >
             <Route path="/" element={<HomePage />} />
             <Route path="hooks" element={<HooksPage />} />
-            <Route path="hocs" element={<HocsPage />} />
+
             <Route path="use-context" element={<UseContextPage />} />
             <Route path="composition" element={<CompositionPage />} />
             <Route path="tuples" element={<TuplesPage />} />

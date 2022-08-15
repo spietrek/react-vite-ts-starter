@@ -21,3 +21,20 @@ const AllSeverities = {
 } as const
 
 export type Severities = typeof AllSeverities[keyof typeof AllSeverities]
+
+export interface ITodoItem {
+  id: number
+  title: string
+  completed: boolean
+  userId: number
+}
+
+export interface ITodosState {
+  isError?: boolean
+  isLoading: boolean
+  count: number
+  completedCount: number
+  todos: ITodoItem[]
+}
+
+export type IMinimumTodosState = Pick<ITodosState, 'isLoading' | 'todos'>

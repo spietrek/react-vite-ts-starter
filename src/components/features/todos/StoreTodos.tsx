@@ -7,54 +7,62 @@ import {
   longRetrieveTodos,
   completedTodosCountSelector,
 } from '@/store/slices/todos/todosSlice'
-import SpinnerWrapper from '@/components/molecules/SpinnerWrapper'
+import { withLoading } from './withLoading'
+import TodoList from '@/components/organisms/TodoList'
 
 const StoreTodos = (): JSX.Element => {
   const count = useAppSelector((state: RootState) => state.todos.count)
+  const todos = useAppSelector((state: RootState) => state.todos.todos)
   const isLoading = useAppSelector((state: RootState) => state.todos.isLoading)
   const completedTodosCount = useAppSelector((state: RootState) => {
     return completedTodosCountSelector(state)
   })
   const dispatch = useAppDispatch()
 
+  const LoadingTodoList = withLoading(TodoList)
+
+  const handleRetrieveTodosClick = (): void => {
+    dispatch(retrieveTodos())
+  }
+
+  const handleLongRetrieveTodosClick = (): void => {
+    dispatch(longRetrieveTodos())
+  }
+
   return (
     <>
-      <SpinnerWrapper isLoading={isLoading}>
-        <>
-          <button
-            className={clsx('tw-btn', 'tw-btn-accent', 'tw-btn-sm', {
-              'tw-loading': isLoading,
-            })}
-            aria-label="Retrieve Todos"
-            onClick={() => dispatch(retrieveTodos())}
-          >
-            Retrieve Todos
-          </button>
-          <button
-            className={clsx(
-              'tw-btn',
-              'tw-btn-accent',
-              'tw-btn-sm',
-              'tw-my-4',
-              'tw-mx-2',
-              {
-                'tw-loading': isLoading,
-              },
-            )}
-            aria-label="Long Retrieve Todos"
-            onClick={() => dispatch(longRetrieveTodos())}
-          >
-            Long Retrieve Todos
-          </button>
-          <button
-            className="tw-btn tw-btn-accent tw-btn-sm"
-            aria-label="Clear"
-            onClick={() => dispatch(clear())}
-          >
-            Clear
-          </button>
-        </>
-      </SpinnerWrapper>
+      <button
+        className={clsx('tw-btn', 'tw-btn-accent', 'tw-btn-sm', {
+          'tw-loading': isLoading,
+        })}
+        aria-label="Retrieve Todos"
+        onClick={handleRetrieveTodosClick}
+      >
+        Retrieve Todos
+      </button>
+      <button
+        className={clsx(
+          'tw-btn',
+          'tw-btn-accent',
+          'tw-btn-sm',
+          'tw-my-4',
+          'tw-mx-2',
+          {
+            'tw-loading': isLoading,
+          },
+        )}
+        aria-label="Long Retrieve Todos"
+        onClick={handleLongRetrieveTodosClick}
+      >
+        Long Retrieve Todos
+      </button>
+      <button
+        className="tw-btn tw-btn-accent tw-btn-sm"
+        aria-label="Clear"
+        onClick={() => dispatch(clear())}
+      >
+        Clear
+      </button>
 
       <div>
         Todos Count: <span>{count}</span>
@@ -62,6 +70,8 @@ const StoreTodos = (): JSX.Element => {
       <div>
         Completed Todos Count: <span>{completedTodosCount}</span>
       </div>
+
+      <LoadingTodoList todos={todos} isLoading={isLoading} />
     </>
   )
 }
